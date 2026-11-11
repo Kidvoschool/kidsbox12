@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kids Box 2 · Unit 11 · My Birthday</title>
+<style>
+:root{--ink:#24324b;--teal:#0e9f9a;--blue:#3183c7;--yellow:#ffd84d;--pink:#ff739c;--lav:#eee8ff;--mint:#d9fff0;--paper:#fffdf8}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:"Trebuchet MS",Arial,sans-serif;background:radial-gradient(circle at 10% 8%,#fff1a9 0 5%,transparent 18%),radial-gradient(circle at 90% 20%,#d2f7e9 0 6%,transparent 20%),linear-gradient(135deg,#d9f6f2,#fff2c6 48%,#f4e3ff);min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:14px;padding:10px 15px;font-weight:800;color:#fff;background:var(--blue);box-shadow:0 4px 0 #205d98;transition:.15s}button:hover{transform:translateY(-1px);filter:brightness(1.04)}button:active{transform:translateY(2px);box-shadow:0 1px 0 #205d98}.soft{background:#fff;color:var(--ink);box-shadow:0 3px 0 #d3d8e3;border:1px solid #e0e7ef}.pink{background:var(--pink);box-shadow:0 4px 0 #d64b78}.yellow{background:#ffbd39;box-shadow:0 4px 0 #d38b14;color:#49360b}
+header{padding:22px 4vw 14px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:14px}.star{width:70px;height:70px;display:grid;place-items:center;background:var(--yellow);clip-path:polygon(50% 0,62% 31%,97% 35%,72% 58%,80% 92%,50% 75%,20% 92%,28% 58%,3% 35%,38% 31%);font-size:30px;font-weight:1000;color:#2574b8;text-shadow:1px 2px white}.brand h1{margin:0;font-size:clamp(28px,4vw,48px);color:#138d91;text-shadow:2px 3px #fff}.brand p{margin:4px 0 0;font-weight:800;color:#65708a}.stats{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.pill{background:#fff;padding:9px 13px;border-radius:999px;font-weight:900;box-shadow:0 3px 0 #dce3e8}.progress{height:9px;background:#ffffffb8;border-radius:99px;overflow:hidden;max-width:400px;margin:0 4vw 16px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#15b9a7,#ffbf3e,#ff7da4);transition:width .25s}
+main{max-width:1450px;margin:auto;padding:0 3vw 36px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:18px}.panel{background:#ffffffdb;border:2px solid #fff;border-radius:24px;padding:18px;box-shadow:0 10px 28px #4860781c;min-width:0}.slidehead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.slidehead h2{margin:0 0 5px;font-size:clamp(21px,2.5vw,30px)}.slidehead p{margin:0;color:#6b7890;font-weight:700}.controls{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.pageframe{margin-top:16px;background:linear-gradient(135deg,#fff8d8,#e2f9f4);padding:12px;border-radius:18px;border:2px solid #e2eee9}.page-tools{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:9px}.zoom-label{font-weight:900;color:#60708a}.page-scroll{overflow:auto;max-height:70vh;border-radius:12px;background:#fff;display:flex;justify-content:center;align-items:flex-start}.page-image{display:block;width:100%;height:auto;max-width:100%;transform-origin:top center;transition:width .15s}.media{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}.mediacard{background:#f4fbff;border:2px solid #d9edf8;border-radius:17px;padding:12px}.mediacard h3{margin:0 0 9px;font-size:15px}.mediacard audio,.mediacard video{width:100%;max-width:100%}.side h3{margin:2px 0 12px}.navlist{display:grid;gap:7px}.navitem{background:#f6faff;color:var(--ink);box-shadow:none;border:2px solid transparent;text-align:left;padding:11px;border-radius:13px}.navitem.active{border-color:#13aaa1;background:#e1fff7}.navitem small{display:block;color:#718098;margin-top:3px;font-weight:700}.side .tiny{font-size:13px;color:#738096;line-height:1.45}.taskgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px;margin-top:18px}.task{background:#fff;border:2px solid #e2e9f3;border-radius:18px;padding:15px}.task h3{margin:0 0 10px}.task label{display:block;font-weight:800;margin:10px 0 5px}.task input,.task select{width:100%;border:2px solid #d8e4ee;border-radius:11px;padding:10px;background:#fbfdff;color:var(--ink)}.feedback{min-height:24px;margin-top:10px;font-weight:900}.correct{color:#138a63}.incorrect{color:#c34c6d}.gameword{display:inline-block;background:#fff1a8;border:2px solid #f4cf4c;border-radius:12px;padding:7px 11px;margin:4px;font-weight:900}.wordbox{display:flex;flex-wrap:wrap;gap:6px}.mini-note{background:#fff5d8;border-radius:14px;padding:12px;margin-top:12px;font-size:14px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}.linkcard{background:linear-gradient(135deg,#fff,#ffe9f1);border:2px solid white;border-radius:17px;padding:15px}.linkcard h3{margin:0 0 8px}.linkcard a{color:#176caa;font-weight:900;overflow-wrap:anywhere}.footer{margin-top:18px;text-align:center;color:#6b7890;font-weight:700;font-size:13px}.hidden{display:none!important}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{order:2}.page-scroll{max-height:65vh}.panel{padding:13px}header{padding-top:15px}}
+
+.intro-slide,.wordwall-slide{margin-top:18px;min-height:420px;border:3px solid #fff;border-radius:28px;padding:clamp(22px,5vw,58px);text-align:center;background:radial-gradient(circle at 12% 12%,#fff3a8 0 6%,transparent 22%),radial-gradient(circle at 88% 22%,#c7f6e8 0 8%,transparent 24%),linear-gradient(135deg,#fff7d8,#ffe1ee 48%,#e1f6ff);box-shadow:0 12px 30px #48607822;overflow:hidden}
+.intro-confetti{font-size:clamp(24px,4vw,42px);letter-spacing:8px;margin-bottom:12px}
+.intro-illustration{display:flex;justify-content:center;gap:24px;font-size:clamp(48px,8vw,88px);margin:12px 0;filter:drop-shadow(0 7px 2px #8a729222)}
+.intro-kicker{font-weight:1000;letter-spacing:3px;color:#168e91;margin-top:8px}
+.intro-slide h2,.wordwall-slide h2{font-size:clamp(36px,6vw,66px);margin:8px 0;color:#ec5b8b;text-shadow:2px 3px #fff}
+.intro-slide p,.wordwall-slide p{font-size:clamp(16px,2vw,21px);font-weight:700;max-width:760px;margin:12px auto 22px;line-height:1.5}
+.intro-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px auto}
+.intro-chips span{padding:10px 15px;border-radius:999px;background:#fff;border:2px solid #fff;box-shadow:0 3px 0 #d7dbe4;font-weight:800}
+.intro-start{font-size:20px;padding:14px 28px;margin-top:12px}
+.ab-interactive{margin-top:18px;padding:18px;border-radius:22px;border:2px solid #fff;background:linear-gradient(135deg,#f1fffb,#fff8df)}
+.ab-banner{font-size:22px;font-weight:1000;color:#138d91;margin-bottom:14px}
+.ab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ab-interactive .task{background:#fff;border:2px solid #e8edf5;border-radius:18px;padding:16px;min-width:0}
+.ab-interactive label{display:block;margin:10px 0;font-weight:800}
+.ab-interactive input,.ab-interactive select{display:block;width:100%;padding:10px;border:2px solid #dbe4ef;border-radius:10px;margin-top:5px;background:#fff}
+.ab-interactive .tiny{font-size:12px;color:#718096}
+.wordwall-slide .links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px;text-align:left}
+.ww-emoji{font-size:40px}
+@media(max-width:700px){.ab-grid,.wordwall-slide .links{grid-template-columns:1fr}.intro-chips{gap:7px}.intro-chips span{font-size:13px}}
+
+body:before{content:"🎈     🎂       🎉        🎁        🧁       🎈";position:fixed;inset:0;pointer-events:none;z-index:-1;font-size:clamp(28px,4vw,52px);letter-spacing:clamp(8px,3vw,35px);line-height:2.3;opacity:.14;overflow:hidden;word-break:break-all}
+.food-spell-grid,.picture-word-grid,.match-picture-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.food-spell-card,.picture-word-card,.match-card{background:#fff;border:2px solid #f0e9ff;border-radius:18px;padding:13px;text-align:center;box-shadow:0 4px 0 #e2deed}
+.food-emoji,.match-emoji{font-size:48px;margin:5px}
+.food-spell-card input,.picture-word-card select,.match-card select{width:100%;padding:10px;border:2px solid #dbe4ef;border-radius:10px;margin:8px 0}
+.food-spell-card h3{font-size:17px;letter-spacing:2px;color:#66738a}
+.sort-bank,.word-bank{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;padding:12px;background:#ffffffb8;border-radius:16px;min-height:52px}
+.word-chip{background:#fff;color:#293750;border:2px solid #d8e4f4;box-shadow:0 3px 0 #c4d0e0;padding:8px 12px}
+.word-chip.selected{outline:3px solid #ffbd39;background:#fff6c8}
+.sort-categories,.like-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+.sort-category,.like-box{background:#fff;border:3px dashed #b8d9df;border-radius:18px;padding:12px;min-height:140px}
+.sort-category h3,.like-box h3{margin:0 0 10px;text-align:center}
+.drop-zone{min-height:80px;display:flex;flex-wrap:wrap;align-content:flex-start;gap:6px}
+.order-task{border:2px solid #e6edf7;border-radius:14px;padding:12px;margin:12px 0;background:#fff}
+.answer-line{display:flex;flex-wrap:wrap;gap:7px;min-height:42px;padding:8px;border:2px dashed #b6d5df;border-radius:12px;background:#f5fffc}
+.editable-table{width:100%;border-collapse:collapse}.editable-table th,.editable-table td{border:2px solid #dce5ef;padding:8px}.editable-table input{width:100%;min-width:90px;padding:8px;border:1px solid #ccd6e5;border-radius:8px}
+.table-wrap{overflow:auto}.source-text{background:#fff6d9;padding:12px;border-radius:12px}
+.like-food-bank{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.food-card{display:flex;flex-direction:column;align-items:center;background:#fff;color:#24324b;border:2px solid #e1e9f3;box-shadow:0 3px 0 #d8e1ed;min-width:115px}
+.food-card span{font-size:34px}.like-columns{grid-template-columns:repeat(2,minmax(0,1fr))}
+.like-box{background:#eafff4;border-style:solid}.like-box.dislike{background:#fff0f5;border-color:#ffd2e0}
+.like-item{background:#fff;padding:10px;border-radius:12px;margin:8px 0;font-weight:800}.like-item p{margin:6px 0;color:#19836e}
+.phonics-sentence{background:#fff;border-radius:18px;padding:18px}.phonics-sentence h3{font-size:clamp(20px,3vw,30px);line-height:1.8}
+.story-question{text-align:center;background:#fff;border-radius:18px;padding:20px}.story-emoji{font-size:58px}
+@media(max-width:700px){.sort-categories{grid-template-columns:1fr}.like-columns{grid-template-columns:1fr}.editable-table th,.editable-table td{padding:4px}}
+</style></head><body>
+<header><div class="brand"><div class="star">11</div><div><h1>My Birthday 🎂</h1><p>Kids Box 2 · Interactive lesson</p></div></div><div class="stats"><div class="pill">⭐ Stars: <span id="stars">0</span></div><div class="pill">🏆 Stars earned: <span id="done">0</span></div><button class="yellow" onclick="toggleTasks()">🎮 Practice games</button></div></header>
+<div class="progress"><span id="progress"></span></div>
+<main><div class="layout"><section class="panel" id="mainPanel">
+<div class="slidehead"><div><h2 id="slideTitle">Loading lesson…</h2><p id="slideSubtitle"></p></div><div class="controls"><button class="soft" onclick="prevSlide()">← Previous</button><button onclick="nextSlide()">Next →</button></div></div>
+<div class="pageframe"><div class="page-tools"><div class="zoom-label">📖 Page view · zoom stays on this screen</div><div class="controls"><button class="soft" onclick="zoom(-10)">−</button><button class="soft" onclick="resetZoom()">100%</button><button class="soft" onclick="zoom(10)">+</button><button class="soft" onclick="toggleFullscreen()">⛶ Fit page</button></div></div><div class="page-scroll" id="pageScroll"><img id="pageImage" class="page-image" alt="Textbook page"></div></div>
+<div class="media" id="media"></div>
+<div class="mini-note">💡 Teacher tip: audio and video controls stay on the same slide as the page. Zoom in with <b>+</b> and keep the player visible, because closing a page just to pause audio is a design crime.</div>
+</section>
+<aside class="panel side"><h3>🗺️ Lesson map</h3><div class="navlist" id="navlist"></div><div class="mini-note">🎁 Each page is its own stage. Use the arrows or jump directly from the lesson map.</div><p class="tiny">The textbook scans are shown as supplied. The interactive games below add checking and retry options without covering the original exercises.</p></aside></div>
+<section id="tasks" class="panel hidden" style="margin-top:18px"><div class="slidehead"><div><h2>🎮 Birthday practice zone</h2><p>Choose, type, check, and try again. Mistakes are just tiny educational potholes.</p></div><button class="pink" onclick="toggleTasks()">Close games ✕</button></div>
+<div class="taskgrid">
+<div class="task"><h3>1. Food vocabulary</h3><p>Choose the correct word for each picture clue.</p><label for="food1">🍰 Sweet birthday dessert</label><select id="food1"><option value="">Choose…</option><option>cake</option><option>salad</option><option>sausages</option></select><label for="food2">🍉 A big green fruit with red inside</label><select id="food2"><option value="">Choose…</option><option>pie</option><option>watermelon</option><option>lemonade</option></select><label for="food3">🥤 A lemon drink</label><select id="food3"><option value="">Choose…</option><option>oranges</option><option>lemonade</option><option>cake</option></select><button onclick="checkFood()">Check answers</button><div class="feedback" id="foodFeedback"></div></div>
+<div class="task"><h3>2. Would you like…?</h3><p>Complete the dialogue.</p><label for="dialog1">A: Would you like some cake?</label><select id="dialog1"><option value="">Choose…</option><option>Yes, please.</option><option>No, I am cake.</option><option>I like yesterday.</option></select><label for="dialog2">B: Would you like some lemonade?</label><select id="dialog2"><option value="">Choose…</option><option>No, thank you.</option><option>Would you like me?</option><option>It is a table.</option></select><button onclick="checkDialogue()">Check answers</button><div class="feedback" id="dialogFeedback"></div></div>
+<div class="task"><h3>3. Complete the words</h3><p>Use the birthday sounds and spelling words.</p><label for="spell1">b _ _ ger</label><input id="spell1" placeholder="Type the missing word"><label for="spell2">b _ _ d</label><input id="spell2" placeholder="Type the missing word"><label for="spell3">p _ _ ple</label><input id="spell3" placeholder="Type the missing word"><button onclick="checkSpelling()">Check answers</button><div class="feedback" id="spellFeedback"></div></div>
+<div class="task"><h3>4. Object pronouns</h3><p>Choose the right word.</p><label for="pronoun1">Look at the robots. Look at ___.</label><select id="pronoun1"><option value="">Choose…</option><option>them</option><option>me</option><option>her</option></select><label for="pronoun2">Can I play with ___?</label><select id="pronoun2"><option value="">Choose…</option><option>us</option><option>it</option><option>himself</option></select><label for="pronoun3">Smile at the girl. Smile at ___.</label><select id="pronoun3"><option value="">Choose…</option><option>her</option><option>them</option><option>me</option></select><button onclick="checkPronouns()">Check answers</button><div class="feedback" id="pronounFeedback"></div></div>
+<div class="task"><h3>5. Make a birthday sentence</h3><p>Put the words in order.</p><div class="wordbox" id="wordBank"><span class="gameword">you</span><span class="gameword">Would</span><span class="gameword">some</span><span class="gameword">like</span><span class="gameword">fries?</span></div><label for="sentence">Write the sentence in the correct order</label><input id="sentence" placeholder="Would you…"><button onclick="checkSentence()">Check sentence</button><div class="feedback" id="sentenceFeedback"></div></div>
+<div class="task"><h3>6. About me 🎈</h3><p>Write your own birthday profile.</p><label for="myname">My name is…</label><input id="myname" placeholder="Your name"><label for="myfood">My favourite birthday food is…</label><input id="myfood" placeholder="cake, watermelon…"><label for="mydrink">I’d like some… to drink.</label><input id="mydrink" placeholder="lemonade / water / juice"><button class="soft" onclick="makeProfile()">Make my profile</button><div class="feedback" id="profileFeedback"></div></div>
+</div></section>
+
+<div class="footer">Kids Box 2 · Unit 11: My Birthday · Built as one standalone HTML file</div></main>
+<script>
+const pages = [{
+"title":"Welcome to Unit 11!",
+"subtitle":"My Birthday 🎂 · Learn, listen, play, and collect stars",
+"img":null,"audios":[],"video":null,"kind":"intro"
+},{"title": "Pupil’s Book · page 78", "subtitle": "My birthday · Food vocabulary", "img": "IMG_8002.jpeg", "audios": ["KidsBox_PupilsBook2_Unit11_Page78_Track_105.mp3", "KidsBox_PupilsBook2_Unit11_Page78_Track_106.mp3"], "video": null, "kind": "pb", "imgdata": "media/unit11/img01.jpg", "audiodata": [{"name": "PupilsBook2 Unit11 Page78 Track 105", "src": "media/unit11/audio01.mp3"}, {"name": "PupilsBook2 Unit11 Page78 Track 106", "src": "media/unit11/audio02.mp3"}], "videodata": null}, {"title": "Activity Book · page 78", "subtitle": "Write the letters · Circle the different word", "img": "IMG_7982.jpeg", "audios": [], "video": null, "kind": "ab", "imgdata": "media/unit11/img02.jpg", "audiodata": [], "videodata": null}, {"title": "Pupil’s Book · page 79", "subtitle": "Listen and point · Object pronouns", "img": "IMG_8003.jpeg", "audios": ["KidsBox_PupilsBook2_Unit11_Page79_Track_107.mp3"], "video": null, "kind": "pb", "imgdata": "media/unit11/img03.jpg", "audiodata": [{"name": "PupilsBook2 Unit11 Page79 Track 107", "src": "media/unit11/audio03.mp3"}], "videodata": null}, {"title": "Activity Book · page 79", "subtitle": "Listen and draw · Write the words", "img": "IMG_7983.jpeg", "audios": ["KidsBox_ActivityBook2_Unit11_page79_Track_34.mp3"], "video": null, "kind": "ab", "imgdata": "media/unit11/img04.jpg", "audiodata": [{"name": "ActivityBook2 Unit11 page79 Track 34", "src": "media/unit11/audio04.mp3"}], "videodata": null}, {"title": "Pupil’s Book · page 80", "subtitle": "Would you like…? · Birthday food", "img": "IMG_8004.jpeg", "audios": ["KidsBox_PupilsBook2_Unit11_Page80_Track_108.mp3", "KidsBox_PupilsBook2_Unit11_Page80_Track_109.mp3"], "video": "KidsBox_Level2_Unit11_Language_video.mp4", "kind": "pb", "imgdata": "media/unit11/img05.jpg", "audiodata": [{"name": "PupilsBook2 Unit11 Page80 Track 108", "src": "media/unit11/audio05.mp3"}, {"name": "PupilsBook2 Unit11 Page80 Track 109", "src": "media/unit11/audio06.mp3"}], "videodata": "media/unit11/video01.mp4"}, {"title": "Activity Book · page 80", "subtitle": "Make true sentences · Read and complete", "img": "IMG_7984.jpeg", "audios": [], "video": null, "kind": "ab", "imgdata": "media/unit11/img06.jpg", "audiodata": [], "videodata": null}, {"title": "Pupil’s Book · page 81", "subtitle": "Listen and sing · Do karaoke", "img": "IMG_8005.jpeg", "audios": ["KidsBox_PupilsBook2_Unit11_Page81_Track_110.mp3", "KidsBox_PupilsBook2_Unit11_Page81_Track_111.mp3"], "video": "KidsBox_Level2_Unit11_Song_video.mp4", "kind": "pb", "imgdata": "media/unit11/img07.jpg", "audiodata": [{"name": "PupilsBook2 Unit11 Page81 Track 110", "src": "media/unit11/audio07.mp3"}, {"name": "PupilsBook2 Unit11 Page81 Track 111", "src": "media/unit11/audio08.mp3"}], "videodata": "media/unit11/video02.mp4"}, {"title": "Activity Book · page 81", "subtitle": "Starters Listening · Listen and draw lines", "img": "IMG_7985.jpeg", "audios": ["KidsBox_ActivityBook2_Unit11_page81_Track_35.mp3"], "video": null, "kind": "ab", "imgdata": "media/unit11/img08.jpg", "audiodata": [{"name": "ActivityBook2 Unit11 page81 Track 35", "src": "media/unit11/audio09.mp3"}], "videodata": null}, {"title": "Pupil’s Book · page 82", "subtitle": "Monty’s sounds and spelling · ir / ur", "img": "IMG_8006.jpeg", "audios": ["KidsBox_PupilsBook2_Unit11_Page82_Track_112.mp3"], "video": "KidsBox_Level2_Unit11_Montys_sounds_and_spelling_video.mp4", "kind": "pb", "imgdata": "media/unit11/img09.jpg", "audiodata": [{"name": "PupilsBook2 Unit11 Page82 Track 112", "src": "media/unit11/audio10.mp3"}], "videodata": "media/unit11/video03.mp4"}, {"title": "Activity Book · page 82", "subtitle": "Complete the words · Write the words · Find the sound", "img": "IMG_7986.jpeg", "audios": [], "video": null, "kind": "ab", "imgdata": "media/unit11/img10.jpg", "audiodata": [], "videodata": null}, {"title": "Pupil’s Book · page 83", "subtitle": "Story: Marie’s birthday", "img": "IMG_8007.jpeg", "audios": ["KidsBox_PupilsBook2_Unit11_Page83_Track_113.mp3"], "video": "KidsBox_Level2_Unit11_Story_video.mp4", "kind": "pb", "imgdata": "media/unit11/img11.jpg", "audiodata": [{"name": "PupilsBook2 Unit11 Page83 Track 113", "src": "media/unit11/audio11.mp3"}], "videodata": "media/unit11/video04.mp4"}];
+const wordwall = [["Our birthday food · game 1", "https://wordwall.net/ru/resource/24440068/kids-box-2-unit-11-my-birthday"], ["My Birthday · game 2", "https://wordwall.net/ru/resource/24440112/kids-box-2-unit-11-my-birthday"], ["My Birthday · game 3", "https://wordwall.net/ru/resource/24440267/kids-box-2-unit-11-my-birthday"]];
+pages.push({
+"title":"🎯 Wordwall Birthday Games",
+"subtitle":"Three extra games to finish the unit",
+"img":null,"audios":[],"video":null,"kind":"wordwall"
+});
+let index=0,zoomLevel=100,stars=0,completed=new Set();
+const $=id=>document.getElementById(id);
+function renderNav(){ $('navlist').innerHTML=pages.map((p,i)=>`<button class="navitem ${i===index?'active':''}" onclick="go(${i})">${i+1}. ${p.title}<small>${p.subtitle}</small></button>`).join('');}
+function render(){
+ const p=pages[index];
+ $('slideTitle').textContent=p.title;
+ $('slideSubtitle').textContent=p.subtitle;
+ $('media').innerHTML='';
+ const img=$('pageImage');
+ const frame=document.querySelector('.pageframe');
+ let old=$('interactiveAB'); if(old) old.remove();
+ let oldIntro=$('introSlide'); if(oldIntro) oldIntro.remove();
+ let oldWW=$('wordwallSlide'); if(oldWW) oldWW.remove();
+
+ if(p.kind==='intro'){
+   frame.style.display='none';
+   const intro=document.createElement('div'); intro.id='introSlide'; intro.className='intro-slide';
+   intro.innerHTML=`<div class="intro-confetti">🎈 ✨ 🎂 🎉 ⭐ 🎁</div>
+   <div class="intro-illustration"><span>🎂</span><span>🎁</span><span>🧁</span></div>
+   <div class="intro-kicker">KIDS BOX 2 · UNIT 11</div><h2>My Birthday!</h2>
+   <p>Let’s learn birthday food, make polite invitations, sing a song, and discover Monty’s sounds.</p>
+   <div class="intro-chips"><span>🍰 Food words</span><span>🎧 Listen & sing</span><span>🧩 Interactive workbook</span><span>⭐ Collect stars</span></div>
+   <button class="yellow intro-start" onclick="nextSlide()">Let’s start! 🚀</button>`;
+   $('media').before(intro);
+ } else if(p.kind==='wordwall'){
+   frame.style.display='none';
+   const ww=document.createElement('div'); ww.id='wordwallSlide'; ww.className='wordwall-slide';
+   ww.innerHTML=`<div class="intro-confetti">🌟 🎯 🎈 🎁 🌟</div><h2>Birthday Bonus Games!</h2><p>Open each game in a new tab, then come back here for your stars.</p><div class="links" id="wordwallFinal"></div>`;
+   $('media').before(ww);
+   $('wordwallFinal').innerHTML=wordwall.map((w,i)=>`<div class="linkcard"><div class="ww-emoji">${['🎂','🎈','🎁'][i]}</div><h3>${i+1}. ${w[0]}</h3><a href="${w[1]}" target="_blank" rel="noopener noreferrer">Open Wordwall activity ↗</a></div>`).join('');
+ } else {
+   frame.style.display='';
+   img.src=p.imgdata; img.alt=p.title; zoomLevel=100;applyZoom();
+   p.audiodata.forEach((a,i)=>{let d=document.createElement('div');d.className='mediacard';d.innerHTML=`<h3>🎧 Audio ${i+1}: ${escapeHTML(a.name)}</h3><audio controls preload="none" src="${a.src}"></audio>`;$('media').appendChild(d);});
+   if(p.videodata){let d=document.createElement('div');d.className='mediacard';d.innerHTML=`<h3>▶️ Video for this page</h3><video controls preload="metadata" playsinline src="${p.videodata}"></video>`;$('media').appendChild(d);}
+   if(p.kind==='ab' || ['78','79','80','81','82','83'].includes((p.title.match(/page\s+(\d+)/i)||[])[1])){
+     const ab=document.createElement('div'); ab.id='interactiveAB'; ab.className='ab-interactive';
+     ab.innerHTML=p.kind==='ab'?getABTasks(p):getPBTasks(p);
+     $('media').after(ab);
+   }
+ }
+ renderNav();
+ $('progress').style.width=((index+1)/pages.length*100)+'%';
+ $('done').textContent=completed.size;
+}
+function getABTasks(p){
+ const page=(p.title.match(/page\s+(\d+)/i)||[])[1];
+ if(page==='78') return `<div class="ab-banner">🧩 Sort the words · Activity Book page 78</div>
+ <p>Drag each word into the correct category.</p>
+ <div class="sort-bank" id="sortBank78">${['cake','pizza','salad','sausage','pie','watermelon','lemonade','cheese','chair','table','bed','sofa','desk','wardrobe','armchair','bookcase','school','park','shop','zoo','cinema','hospital','playground','supermarket'].sort(()=>Math.random()-.5).map(w=>`<button class="word-chip" draggable="true" data-word="${w}" onclick="tapWord(this,'sortBank78')">${w}</button>`).join('')}</div>
+ <div class="sort-categories">
+ ${[['food','🍕 FOOD'],['furniture','🪑 FURNITURE'],['places','🏫 PLACES']].map(([id,label])=>`<div class="sort-category" data-category="${id}" ondragover="event.preventDefault()" ondrop="dropWord(event,'${id}')" onclick="tapCategory('${id}')"><h3>${label}</h3><div class="drop-zone" id="zone-${id}"></div></div>`).join('')}
+ </div><p class="tiny">Tap a word, then tap a category, or drag the word into a category.</p><button onclick="checkSort78()">Check answers</button><button class="soft" onclick="resetSort78()">Try again</button><div class="feedback" id="sort78fb"></div>`;
+ if(page==='79') return `<div class="ab-banner">🧩 Activity Book page 79</div>
+ <div class="ab-grid"><div class="task"><h3>1. Listen and draw</h3><p>Play Track 34 above and colour the original worksheet on the page.</p><p>🎧 Use the audio controls above; the original drawing activity stays available.</p></div>
+ <div class="task"><h3>2. Write the words</h3><p>Practise the words from the page.</p>${['','','','','',''].map((_,i)=>`<label>${i+1}. <input id="ab79write${i}" placeholder="Write the word"></label>`).join('')}<button onclick="checkAB79write()">Check words</button><div class="feedback" id="ab79writefb"></div></div></div>
+ <div class="task"><h3>3. Match the pronouns</h3><p>Match each subject pronoun to its object pronoun.</p><div class="ab-grid">${[['I','me'],['you','you'],['she','her'],['it','it'],['we','us'],['they','them']].map(([a,b],i)=>`<label>${a}<select id="ab79match${i}"><option value="">Choose…</option>${['me','you','her','it','us','them'].map(v=>`<option>${v}</option>`).join('')}</select></label>`).join('')}</div><button onclick="checkAB79match()">Check matches</button><div class="feedback" id="ab79matchfb"></div></div>`;
+ if(page==='80') return `<div class="ab-banner">🧩 Activity Book page 80</div>
+ <div class="task"><h3>1. Put the words in order</h3><p>Tap the words in the correct order to build each sentence.</p>
+ ${[['Would','you','like','some','fries?'],['Yes,','I','would','love','some.'],['Can','I','have','water,','please?'],['Would','you','like','a','burger?']].map((arr,i)=>`<div class="order-task"><b>Sentence ${i+1}</b><div class="word-bank" id="ab80bank${i}">${arr.slice().sort(()=>Math.random()-.5).map(w=>`<button class="word-chip" onclick="moveOrderWord(this,'ab80answer${i}')">${w}</button>`).join('')}</div><div class="answer-line" id="ab80answer${i}" data-answer="${arr.join(' ')}"></div></div>`).join('')}
+ <button onclick="checkOrder80()">Check sentences</button><button class="soft" onclick="resetOrder80()">Reset</button><div class="feedback" id="ab80orderfb"></div></div>
+ <div class="task"><h3>2. Complete the table</h3><p>Read the original text on the page, then type your answers into the table.</p><p class="source-text"><i>It's Anna's Thursday and she is having lunch with her three friends, May, Ben and Sam.</i></p>
+ <div class="table-wrap"><table class="editable-table"><thead><tr><th>Name</th><th>Food / drink</th><th>Likes / answers</th></tr></thead><tbody>${['Anna','May','Ben','Sam'].map(n=>`<tr><td>${n}</td><td><input aria-label="${n} food" id="ab80food${n}" placeholder="Type here"></td><td><input aria-label="${n} answer" id="ab80answerCell${n}" placeholder="Type here"></td></tr>`).join('')}</tbody></table></div><button onclick="checkTable80()">Check table</button><div class="feedback" id="ab80tablefb"></div></div>`;
+ if(page==='81') return `<div class="ab-banner">🧩 Activity Book page 81</div>
+ <div class="task"><h3>1. Listen and draw lines</h3><p>Play Track 35 above and complete the original listening task on the page.</p></div>
+ <div class="task"><h3>2. I like / I don't like</h3><p>Tap a food picture, then choose which box it belongs in. Your sentences appear automatically.</p>
+ <div class="like-food-bank">${[['chocolate cake','🍫🎂'],['sausage','🌭'],['burger','🍔'],['fries','🍟'],['lemonade','🍋🥤']].map(([w,e])=>`<button class="food-card" data-food="${w}" onclick="selectLikeFood('${w}',this)"><span>${e}</span><b>${w}</b></button>`).join('')}</div>
+ <div class="like-columns"><div class="like-box"><h3>💚 I like</h3><div id="likeBox"></div><div id="likeSentences"></div></div><div class="like-box dislike"><h3>💗 I don't like</h3><div id="dislikeBox"></div><div id="dislikeSentences"></div></div></div>
+ <div class="feedback" id="likefb"></div></div>`;
+ if(page==='82') return `<div class="ab-banner">🧩 Activity Book page 82</div>
+ <div class="ab-grid"><div class="task"><h3>1. Complete the words</h3><p>Fill in the missing letters.</p>
+ <label>b <input id="ab82a" placeholder="ir"> d</label><label>p <input id="ab82b" placeholder="ur"> ple</label><label>n <input id="ab82c" placeholder="ur"> se</label>
+ <button onclick="checkAB82()">Check answers</button><div class="feedback" id="ab82fb"></div></div>
+ <div class="task"><h3>2. Write the words</h3><p>Use the pictures and sounds on the original page to write the word.</p>
+ <label>🐦 A small animal that can fly <input id="ab82d" placeholder="Write the word"></label>
+ <label>🟣 The colour of a purple bird <input id="ab82e" placeholder="Write the word"></label>
+ <label>🍔 Food in a bun <input id="ab82f" placeholder="Write the word"></label>
+ <button onclick="checkAB82write()">Check words</button><div class="feedback" id="ab82writefb"></div></div></div>`;
+ return `<div class="ab-banner">🧩 Activity Book practice</div><div class="task"><p>Use the original page above and complete the practice below.</p><input id="abExtra" placeholder="Write a birthday word"><button onclick="checkABExtra()">Check</button><div class="feedback" id="abExtrafb"></div></div>`;
+}
+function getPBTasks(p){
+ const page=(p.title.match(/page\s+(\d+)/i)||[])[1];
+ if(page==='78') return `<div class="ab-banner">🍉 Birthday food · Unscramble the letters</div><p>Look at each picture and put the letters in the right order.</p><div class="food-spell-grid">${[['sausage','🌭','s a u s a g e'],['salad','🥗','a a l s d'],['watermelon','🍉','m e l o n w a t e r'],['lemonade','🍋🥤','d e m o n a l e'],['oranges','🍊','s g e o r a n'],['pie','🥧','e p i'],['cake','🎂','a e c k']].map(([w,e,letters],i)=>`<div class="food-spell-card"><div class="food-emoji">${e}</div><h3>${letters}</h3><input id="pb78${i}" placeholder="Type the word"><button onclick="checkFoodSpell(${i},'${w}')">Check</button><div class="feedback" id="pb78fb${i}"></div></div>`).join('')}</div>`;
+ if(page==='79') return `<div class="ab-banner">👀 Listen, look and match · Pupil's Book page 79</div><div class="task"><h3>1. Match each sentence to a picture</h3><div class="match-picture-grid">${[['👨‍👨‍👦‍👦','Look at them, five young men.','them'],['🏊‍♂️','Look at him, he can swim.','him'],['👗👧','Look at her, in her new skirt.','her']].map(([e,t,v],i)=>`<div class="match-card"><div class="match-emoji">${e}</div><p>${t}</p><select id="pb79match${i}"><option value="">Choose the picture clue…</option><option value="them">Five young men</option><option value="him">A boy swimming</option><option value="her">A girl in a skirt</option></select></div>`).join('')}</div><button onclick="checkPB79match()">Check matches</button><div class="feedback" id="pb79matchfb"></div></div>
+ <div class="task"><h3>2. Read and complete</h3><p>Look at the pictures on the original page and choose the missing words by meaning.</p><div class="story-clues"><span>🧒</span><span>🎂</span><span>🎁</span><span>🎈</span></div><p>Use the picture clues from the book to fill in the gaps.</p><div class="ab-grid">${[1,2,3,4].map((n)=>`<label>Missing word ${n}<input id="pb79gap${n}" placeholder="Type the missing word"></label>`).join('')}</div><button onclick="checkPB79gaps()">Check words</button><div class="feedback" id="pb79gapfb"></div></div>`;
+ if(page==='80') return `<div class="ab-banner">🍟 Put the words in order · Pupil's Book page 80</div><p>Tap the word cards in the correct order.</p><div class="task">${[['Would','you','like','some','fries?'],['Yes,','I','would','love','some.'],['Would','you','like','a','burger','or','a','sausage?'],['I','would','like','a','burger,','please.'],['Can','I','have','water,','please?']].map((arr,i)=>`<div class="order-task"><b>Sentence ${i+1}</b><div class="word-bank" id="pb80bank${i}">${arr.slice().sort(()=>Math.random()-.5).map(w=>`<button class="word-chip" onclick="moveOrderWord(this,'pb80answer${i}')">${w}</button>`).join('')}</div><div class="answer-line" id="pb80answer${i}" data-answer="${arr.join(' ')}"></div></div>`).join('')}<button onclick="checkOrderPB80()">Check sentences</button><button class="soft" onclick="resetOrderPB80()">Reset</button><div class="feedback" id="pb80orderfb"></div></div>`;
+ if(page==='81') return `<div class="ab-banner">🎨 Match the pictures to the words · Pupil's Book page 81</div><p>Match each food picture to its word.</p><div class="picture-word-grid">${[['🍫🎂','chocolate cake'],['🌭','sausage'],['🍔','burger'],['🍟','fries'],['🍋🥤','lemonade'],['✏️','coloured pencil']].map(([e,w],i)=>`<div class="picture-word-card"><div class="food-emoji">${e}</div><select id="pb81match${i}"><option value="">Choose a word…</option>${['chocolate cake','sausage','burger','fries','lemonade','coloured pencil'].map(x=>`<option>${x}</option>`).join('')}</select></div>`).join('')}<button onclick="checkPB81()">Check answers</button><div class="feedback" id="pb81fb"></div></div>`;
+ if(page==='82') return `<div class="ab-banner">🔤 Monty's spelling · Fill in the missing letters</div><div class="phonics-sentence"><h3>Happy b<span class="blank">_ _</span>thday, p<span class="blank">_ _</span>ple b<span class="blank">_ _</span>d, let's eat a b<span class="blank">_ _</span>ger at the c<span class="blank">_ _</span>cus!</h3><div class="ab-grid">${[['birthday','ir'],['purple','ur'],['bird','ir'],['burger','ur'],['circus','ir']].map(([w,ans],i)=>`<label>Word ${i+1}<input id="pb82${i}" maxlength="2" placeholder="Missing two letters"></label>`).join('')}</div><button onclick="checkPB82()">Check spelling</button><div class="feedback" id="pb82fb"></div></div>`;
+ if(page==='83') return `<div class="ab-banner">🎂 Story check · Marie's birthday</div><div class="story-question"><div class="story-emoji">🎉🎁🎂🎈</div><h3>Whose birthday is it?</h3><div class="ab-grid"><button class="soft" onclick="checkPB83('Marie')">Marie's birthday</button><button class="soft" onclick="checkPB83('Monty')">Monty's birthday</button><button class="soft" onclick="checkPB83('Simon's')">Simon's birthday</button></div><div class="feedback" id="pb83fb"></div></div>`;
+ return '';
+}
+function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function go(i){index=Math.max(0,Math.min(pages.length-1,i));render();window.scrollTo({top:0,behavior:'smooth'});}
+function prevSlide(){if(index>0)go(index-1)}function nextSlide(){if(index<pages.length-1)go(index+1)}
+function applyZoom(){let im=$('pageImage');im.style.width=zoomLevel+'%';im.style.maxWidth='none';$('pageScroll').style.justifyContent=zoomLevel<=100?'center':'flex-start';}
+function zoom(n){zoomLevel=Math.max(60,Math.min(180,zoomLevel+n));applyZoom()}
+function resetZoom(){zoomLevel=100;applyZoom()}
+function toggleFullscreen(){const el=$('pageScroll');if(el.requestFullscreen)el.requestFullscreen();else{zoomLevel=zoomLevel===100?125:100;applyZoom()}}
+function toggleTasks(){$('tasks').classList.toggle('hidden');if(!$('tasks').classList.contains('hidden'))$('tasks').scrollIntoView({behavior:'smooth',block:'start'})}
+function award(key,msg){if(!completed.has(key)){completed.add(key);stars+=1;$('stars').textContent=stars;$('done').textContent=completed.size;}return msg}
+function feedback(id,ok,msg){$(id).className='feedback '+(ok?'correct':'incorrect');$(id).textContent=(ok?'⭐ ':'🔁 ')+msg;}
+function checkFood(){let ok=$('food1').value==='cake'&&$('food2').value==='watermelon'&&$('food3').value==='lemonade';feedback('foodFeedback',ok,ok?award('food','Perfect! All three food words are correct.'):'Not quite. Check the dessert, the fruit, and the lemon drink.');}
+function checkDialogue(){let ok=$('dialog1').value==='Yes, please.'&&$('dialog2').value==='No, thank you.';feedback('dialogFeedback',ok,ok?award('dialog','Lovely manners! Both replies work.'):'Try a polite reply: “Yes, please” or “No, thank you.”');}
+function checkSpelling(){let ok=$('spell1').value.trim().toLowerCase()==='burger'&&$('spell2').value.trim().toLowerCase()==='bird'&&$('spell3').value.trim().toLowerCase()==='purple';feedback('spellFeedback',ok,ok?award('spell','All words spelled correctly!'):'Check the full words: burger, bird, purple.');}
+function checkPronouns(){let ok=$('pronoun1').value==='them'&&$('pronoun2').value==='us'&&$('pronoun3').value==='her';feedback('pronounFeedback',ok,ok?award('pronouns','Excellent object pronouns!'):'Try again: them, us, her.');}
+function checkSentence(){let s=$('sentence').value.trim().toLowerCase().replace(/[.!]/g,'').replace(/\s+/g,' ');let ok=s==='would you like some fries';feedback('sentenceFeedback',ok,ok?award('sentence','Correct sentence: Would you like some fries?'):'Put the words in this order: Would you like some fries?');}
+function makeProfile(){let name=$('myname').value.trim(),food=$('myfood').value.trim(),drink=$('mydrink').value.trim();if(!name||!food||!drink){feedback('profileFeedback',false,'Fill in all three lines first.');return}feedback('profileFeedback',true,award('profile',`My name is ${name}. My favourite birthday food is ${food}. I’d like some ${drink} to drink.`));}
+
+function abCheck(key,ok,id,yes,no){feedback(id,ok,ok?award(key,yes):no);}
+function checkAB79write(){let vals=['me','you','her','it','us','them'];let ok=vals.every((v,i)=>$('ab79write'+i).value.trim().toLowerCase()===v);abCheck('ab79write',ok,'ab79writefb','All six words are correct!','Check the spelling of each pronoun.');}
+function checkAB79match(){let vals=['me','you','her','it','us','them'];let ok=vals.every((v,i)=>$('ab79match'+i).value===v);abCheck('ab79match',ok,'ab79matchfb','Perfect matching!','Match I–me, you–you, she–her, it–it, we–us, they–them.');}
+function checkAB82(){let ok=$('ab82a').value.trim().toLowerCase()==='ir'&&$('ab82b').value.trim().toLowerCase()==='ur'&&$('ab82c').value.trim().toLowerCase()==='ur';abCheck('ab82',ok,'ab82fb','Great spelling!','The missing pairs are ir, ur, ur.');}
+function checkAB82write(){let ok=$('ab82d').value.trim().toLowerCase()==='bird'&&$('ab82e').value.trim().toLowerCase()==='purple'&&$('ab82f').value.trim().toLowerCase()==='burger';abCheck('ab82write',ok,'ab82writefb','All words are correct!','Try bird, purple and burger.');}
+function checkABExtra(){let ok=$('abExtra').value.trim().length>1;abCheck('abExtra',ok,'abExtrafb','Nice work!','Type a birthday word first.');}
+function checkSort78(){let correct={food:['cake','pizza','salad','sausage','pie','watermelon','lemonade','cheese'],furniture:['chair','table','bed','sofa','desk','wardrobe','armchair','bookcase'],places:['school','park','shop','zoo','cinema','hospital','playground','supermarket']};let ok=true;for(const cat in correct){for(const el of $('zone-'+cat).querySelectorAll('[data-word]'))if(!correct[cat].includes(el.dataset.word))ok=false;if($('zone-'+cat).querySelectorAll('[data-word]').length!==8)ok=false;}abCheck('sort78',ok,'sort78fb','All 24 words are in the right categories!','Some words are in the wrong category or still in the word bank. Try again.');}
+function resetSort78(){document.querySelectorAll('.sort-category [data-word]').forEach(el=>{el.draggable=true;$('sortBank78').appendChild(el)});document.querySelectorAll('.sort-category').forEach(el=>el.classList.remove('selected'));feedback('sort78fb',false,'Words returned. Start sorting again.');}
+let selectedSortWord=null;
+function tapWord(el){selectedSortWord=el;document.querySelectorAll('.word-chip').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');}
+function tapCategory(cat){if(selectedSortWord){$('zone-'+cat).appendChild(selectedSortWord);selectedSortWord.classList.remove('selected');selectedSortWord=null;}}
+function dropWord(ev,cat){ev.preventDefault();let word=ev.dataTransfer.getData('text/plain');let node=document.querySelector(`[data-word="${word}"]`);if(node)$('zone-'+cat).appendChild(node);}
+document.addEventListener('dragstart',ev=>{if(ev.target.matches('[data-word]'))ev.dataTransfer.setData('text/plain',ev.target.dataset.word)});
+function selectLikeFood(food,btn){let choice=prompt(`Type "like" or "don't like" for ${food}:`);if(!choice)return;choice=choice.toLowerCase().trim();if(choice==='like'||choice==="don't like"||choice==='dont like'){let target=choice==='like'?'likeBox':'dislikeBox';let emoji=btn.querySelector('span').textContent;let old=document.querySelector(`[data-selected-food="${food}"]`);if(old)old.remove();let item=document.createElement('div');item.className='like-item';item.dataset.selectedFood=food;let noun=food==='fries'?'fries':food==='lemonade'?'lemonade':food==='chocolate cake'?'chocolate cake':food==='sausage'?'sausages':'burgers';item.innerHTML=`<span>${emoji} ${food}</span><p>${choice==='like' ? 'I like' : "I don't like"} ${noun}.</p>`;$(target).appendChild(item);}}
+function checkOrderSet(prefix,count,id,key){let ok=true;for(let i=0;i<count;i++){let el=$(`${prefix}answer${i}`);let got=[...el.querySelectorAll('.word-chip')].map(x=>x.textContent).join(' ');if(got!==el.dataset.answer)ok=false;}abCheck(key,ok,id,`All ${count} sentences are in order!`,'Some words are out of order. Rearrange the cards and try again.');}
+function moveOrderWord(btn,target){$(target).appendChild(btn);}
+function resetOrder(prefix,count){for(let i=0;i<count;i++){let ans=$(`${prefix}answer${i}`);let bank=$(`${prefix}bank${i}`);[...ans.querySelectorAll('button')].forEach(b=>bank.appendChild(b));}}
+function checkOrder80(){checkOrderSet('ab80',4,'ab80orderfb','ab80order')}
+function resetOrder80(){resetOrder('ab80',4)}
+function checkOrderPB80(){checkOrderSet('pb80',5,'pb80orderfb','pb80order')}
+function resetOrderPB80(){resetOrder('pb80',5)}
+function checkTable80(){let any=['Anna','May','Ben','Sam'].some(n=>$('ab80food'+n).value.trim()||$('ab80answerCell'+n).value.trim());abCheck('table80',any,'ab80tablefb','Table entries saved. Compare them with the original listening/text task.','Fill in at least one cell first.')}
+function checkPB79match(){let ans=['them','him','her'];let ok=ans.every((v,i)=>$('pb79match'+i).value===v);abCheck('pb79match',ok,'pb79matchfb','All three sentences match!','Look carefully at who is swimming, who wears a skirt, and the group of five.')}
+function checkPB79gaps(){let vals=[1,2,3,4].map(n=>$('pb79gap'+n).value.trim());let ok=vals.every(v=>v.length>0);abCheck('pb79gaps',ok,'pb79gapfb','You filled all the gaps. Check against the original text.','Complete each missing word using the pictures.')}
+function checkFoodSpell(i,word){let ok=$('pb78'+i).value.trim().toLowerCase()===word;abCheck('pb78spell'+i,ok,'pb78fb'+i,`Correct! ${word}.`,'Look at the picture and rearrange the letters.')}
+function checkPB81(){let vals=['chocolate cake','sausage','burger','fries','lemonade','coloured pencil'];let ok=vals.every((v,i)=>$('pb81match'+i).value===v);abCheck('pb81match',ok,'pb81fb','All picture labels are correct!','Check each picture and choose the matching word.')}
+function checkPB82(){let vals=['ir','ur','ir','ur','ir'];let ok=vals.every((v,i)=>$('pb82'+i).value.trim().toLowerCase()===v);abCheck('pb82spell',ok,'pb82fb','Fantastic spelling!','birthday = ir, purple = ur, bird = ir, burger = ur, circus = ir.')}
+function checkPB83(choice){let ok=choice==='Marie';abCheck('pb83story',ok,'pb83fb',`Correct! It is Marie's birthday.`,'Watch the story again and check the character’s name.')}
+if($('wordwall'))$('wordwall').innerHTML=wordwall.map((w,i)=>`<div class="linkcard"><h3>🎯 ${i+1}. ${w[0]}</h3><a href="${w[1]}" target="_blank" rel="noopener noreferrer">Open Wordwall activity ↗</a></div>`).join('');
+render();
+</script></body></html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 8 — My Town</title>
+<style>
+:root {
+  --blue:#2e8df1; --blue2:#70ccff; --navy:#173f73; --yellow:#ffd84d;
+  --green:#bfe9a5; --pink:#ffd4e4; --purple:#e7d8ff; --coral:#ff9b82;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--navy);background:linear-gradient(#eaf8ff,#f9fdff)}
+body{overflow:hidden}
+#app{height:100vh;display:flex;flex-direction:column}
+.topbar{flex:0 0 72px;display:flex;align-items:center;gap:16px;padding:12px 20px;background:#fff;box-shadow:0 4px 14px rgba(30,80,120,.12);z-index:1000}
+.brand{font-weight:900;font-size:clamp(20px,2vw,30px);white-space:nowrap}
+.progressWrap{flex:1;height:18px;background:#dff1fb;border:2px solid #b9dff4;border-radius:999px;overflow:hidden}
+.progress{height:100%;width:0;background:linear-gradient(90deg,#ffd74a,#ffb43f);transition:.3s}
+.score{padding:8px 14px;background:#fff6c3;border:2px solid #ffd24c;border-radius:999px;font-weight:900}
+.screen{display:none;flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:24px 18px 108px}
+.screen.active{display:block}
+.panel{max-width:1240px;margin:0 auto;background:#fff;border:3px solid rgba(100,190,240,.20);border-radius:32px;padding:24px;box-shadow:0 20px 50px rgba(50,120,180,.18)}
+.startPanel,.finalPanel{min-height:calc(100vh - 210px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.kicker{display:inline-block;background:#dff4ff;color:#1574bd;padding:8px 14px;border-radius:999px;font-weight:900;margin-bottom:8px}
+h1,h2{margin:.2em 0 .35em;color:var(--navy);font-weight:900;line-height:1.08}
+h1{font-size:clamp(38px,5vw,66px)}
+h2{font-size:clamp(30px,4vw,48px)}
+.lead{font-size:clamp(18px,2vw,24px);color:#5a79a1;max-width:900px}
+.banner{display:block;width:100%;height:auto;object-fit:contain;max-height:54vh;border-radius:24px;box-shadow:0 14px 36px rgba(40,100,160,.16);pointer-events:none}
+.task{margin-top:22px;padding:20px;background:linear-gradient(#fbfeff,#f4fbff);border:2px dashed #b7def4;border-radius:24px}
+.task h3{margin:0 0 14px;font-size:clamp(22px,2.5vw,30px)}
+.q{font-size:clamp(18px,2vw,23px);font-weight:800;margin:12px 0}
+.answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.answer{min-height:58px;border:3px solid #fff;border-radius:18px;padding:15px 16px;font-weight:900;color:#183f72;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.08);transition:.15s;touch-action:manipulation}
+.answer:nth-child(4n+1){background:#fff0a8}
+.answer:nth-child(4n+2){background:#caf0b7}
+.answer:nth-child(4n+3){background:#eadbff}
+.answer:nth-child(4n+4){background:#ffd5e5}
+.answer:hover{transform:translateY(-2px)} .answer:active{transform:translateY(3px)}
+.answer.correct{background:#bff0c8!important;outline:3px solid #3db45d}
+.answer.wrong{background:#ffc7c7!important;outline:3px solid #e95757}
+.feedback{min-height:28px;margin-top:12px;font-weight:900;font-size:18px}
+.fillRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.fillRow input{flex:1;min-width:220px;padding:14px 16px;border:2px solid #9fd4f1;border-radius:14px;font-size:18px}
+.primary,.secondary{border:0;border-radius:18px;padding:14px 22px;font-weight:900;cursor:pointer;box-shadow:0 6px 0 rgba(0,0,0,.14);touch-action:manipulation}
+.primary{background:linear-gradient(#4dbaff,#2e85f1);color:#fff}
+.secondary{background:#fff;color:#1762a3;border:2px solid #b8dff5}
+.primary:hover,.secondary:hover{transform:translateY(-2px)} .primary:active,.secondary:active{transform:translateY(3px)}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-between;gap:12px;padding:14px 22px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.96) 35%,#fff);z-index:1000;pointer-events:none}
+.nav button{pointer-events:auto;min-width:120px;position:relative;z-index:1001}
+.hidden{visibility:hidden}
+
+.audioRow{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 4px}
+.audioBtn{
+  border:0;border-radius:999px;padding:14px 20px;font-weight:900;cursor:pointer;
+  background:linear-gradient(#58c5ff,#2d8df2);color:#fff;
+  box-shadow:0 6px 0 #1768cf,0 12px 22px rgba(43,125,225,.25);
+  touch-action:manipulation;min-width:190px
+}
+.audioBtn:hover{transform:translateY(-2px)}
+.audioBtn:active{transform:translateY(3px);box-shadow:0 3px 0 #1768cf}
+
+
+.videoLessonWrap{
+  margin:18px auto 8px;
+  width:min(100%,1128px);
+  border-radius:24px;
+  overflow:hidden;
+  background:#0d315f;
+  box-shadow:0 14px 30px rgba(24,83,145,.22);
+}
+.lessonVideo{
+  display:block;
+  width:100%;
+  max-height:620px;
+  background:#000;
+}
+
+.prepGame{margin:22px 0 8px;padding:24px;border:2px dashed #b9ddf7;border-radius:24px;background:linear-gradient(180deg,#fbfeff,#f4fbff)}
+.prepGame h3{margin:0 0 6px;font-size:32px;color:#183f73}.prepIntro{font-size:18px;color:#4f6f93;margin:0 0 18px}.prepQuestion{background:#fff;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 6px 16px rgba(40,95,145,.10)}.prepSentence{font-size:22px;font-weight:800;color:#183f73;margin-bottom:14px}.prepChoices{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.prepChoices button{border:0;border-radius:16px;padding:14px 10px;font-size:17px;font-weight:800;cursor:pointer;color:#183f73;background:#eaf6ff;box-shadow:0 4px 0 #c7e3f7}.prepChoices button.correct{background:#c8f4c4;box-shadow:0 4px 0 #83cc7a}.prepChoices button.wrong{background:#ffd4dc;box-shadow:0 4px 0 #ef9aaa}.prepFeedback{min-height:24px;margin-top:10px;font-weight:800}.prepScore{margin-top:18px;font-size:22px;font-weight:900;color:#183f73}@media(max-width:700px){.prepChoices{grid-template-columns:1fr}}
+@media(max-width:900px){.banner{max-height:none}}
+@media(max-width:620px){.topbar{height:auto;flex-wrap:wrap}.brand{width:100%}.screen{padding:14px 10px 108px}.panel{padding:14px;border-radius:22px}.answers{grid-template-columns:1fr}.nav{padding:12px}.nav button{min-width:105px;padding:13px 15px}}
+
+.questionOnlyList{display:grid;gap:13px;margin-top:15px}
+.questionOnly{display:flex;align-items:center;gap:14px;padding:14px 17px;background:#fff;border-radius:16px;font-size:21px;font-weight:800;color:#173f73;box-shadow:0 4px 12px rgba(34,83,130,.08)}
+.qNum{width:38px;height:38px;flex:0 0 38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#dff3ff;color:#126db0;font-weight:900}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="topbar">
+  <div class="brand">⭐ Unit 8 • My Town</div>
+  <div class="progressWrap"><div id="progress" class="progress"></div></div>
+  <div id="score" class="score">⭐ 0</div>
+</div>
+
+<section class="screen active" data-screen="0">
+  <div class="panel startPanel">
+    <img class="banner" style="margin:0 auto 28px;max-height:46vh;" src="media/unit8/img01.jpg" alt="Unit 8 My Town">
+    <div class="kicker">Interactive lesson</div>
+    <h1>My Town</h1>
+    <p class="lead">Explore places, people, prepositions, spelling and story tasks in a bright web-game lesson.</p>
+    <button class="primary" onclick="show(1)">Start mission →</button>
+  </div>
+</section>
+
+<section class="screen" data-screen="1">
+  <div class="panel">
+    <div class="kicker">Mission 1 • Places</div>
+    <h2>What can you see in town?</h2>
+    <img class="banner" src="media/unit8/img01.jpg" alt="My Town places">
+    <div class="audioRow">
+      <button id="audio74Btn" class="audioBtn" onclick="toggleLessonAudio('audio74','audio74Btn')">▶ Play Track 74</button>
+      <button id="audio75Btn" class="audioBtn" onclick="toggleLessonAudio('audio75','audio75Btn')">▶ Play Track 75</button>
+    </div>
+    <audio id="audio74" preload="auto">
+      <source src="media/unit8/audio01.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="audio75" preload="auto">
+      <source src="media/unit8/audio02.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="task">
+      <h3>Choose the place</h3>
+      <div class="q">Where can you buy shoes?</div>
+      <div class="answers">
+        <button class="answer" onclick="mc(this,false)">hospital</button>
+        <button class="answer" onclick="mc(this,true)">shop</button>
+        <button class="answer" onclick="mc(this,false)">park</button>
+        <button class="answer" onclick="mc(this,false)">flat</button>
+      </div>
+      <div class="feedback"></div>
+
+      <div class="q">Where do you live in?</div>
+      <div class="answers">
+        <button class="answer" onclick="mc(this,false)">hospital</button>
+        <button class="answer" onclick="mc(this,false)">shop</button>
+        <button class="answer" onclick="mc(this,false)">park</button>
+        <button class="answer" onclick="mc(this,true)">flat</button>
+      </div>
+      <div class="feedback"></div>
+
+      <div class="q">Where can you walk or relax?</div>
+      <div class="answers">
+        <button class="answer" onclick="mc(this,false)">cafe</button>
+        <button class="answer" onclick="mc(this,false)">hospital</button>
+        <button class="answer" onclick="mc(this,true)">park</button>
+        <button class="answer" onclick="mc(this,false)">flat</button>
+      </div>
+      <div class="feedback"></div>
+
+      <div class="q">Where can you get medical help?</div>
+      <div class="answers">
+        <button class="answer" onclick="mc(this,true)">hospital</button>
+        <button class="answer" onclick="mc(this,false)">shop</button>
+        <button class="answer" onclick="mc(this,false)">street</button>
+        <button class="answer" onclick="mc(this,false)">cafe</button>
+      </div>
+      <div class="feedback"></div>
+
+      <div class="q">Where can you buy coffee, tea, food, and drinks?</div>
+      <div class="answers">
+        <button class="answer" onclick="mc(this,true)">cafe</button>
+        <button class="answer" onclick="mc(this,false)">shop</button>
+        <button class="answer" onclick="mc(this,false)">park</button>
+        <button class="answer" onclick="mc(this,false)">flat</button>
+      </div>
+      <div class="feedback"></div>
+
+      <div class="q">A road in a town or city</div>
+      <div class="answers">
+        <button class="answer" onclick="mc(this,false)">hospital</button>
+        <button class="answer" onclick="mc(this,true)">street</button>
+        <button class="answer" onclick="mc(this,false)">park</button>
+        <button class="answer" onclick="mc(this,false)">flat</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" data-screen="2">
+  <div class="panel">
+    <div class="kicker">Mission 2 • Read and answer</div>
+    <h2>Look closely</h2>
+    <img class="banner" src="media/unit8/img02.jpg" alt="Town scene with questions">
+    <div class="task">
+      <h3>Answer the questions</h3>
+      <div class="q">1. Where is the woman with the dog?</div>
+      <div class="q">2. How many pineapples are there?</div>
+      <div class="q">3. How many dogs are there?</div>
+      <div class="q">4. Where is the boy with the kite?</div>
+      <div class="q">5. What color are the boots in the shoe shop?</div>
+      <div class="q">6. Where are the lemons?</div>
+      <div class="q">7. How many children are there in the park?</div>
+      <div class="q">8. How many cars are there?</div>
+      <div class="q">9. How many skateboards are there?</div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="screen" data-screen="4">
+  <div class="panel">
+    <div class="kicker">Mission 4 • Prepositions</div>
+    <h2>Who’s in front of Grandma?</h2>
+    <img class="banner" src="media/unit8/img03.jpg" alt="People and prepositions">
+    <div class="audioRow">
+      <button id="audio76Btn" class="audioBtn" onclick="toggleLessonAudio('audio76','audio76Btn')">▶ Play Track 76</button>
+    </div>
+    <audio id="audio76" preload="auto">
+      <source src="media/unit8/audio03.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="task">
+      <h3>Choose the answer</h3>
+      <div class="answers">
+        <button class="answer" onclick="mc(this,true)">Simon</button>
+        <button class="answer" onclick="mc(this,false)">Lenny’s mum</button>
+        <button class="answer" onclick="mc(this,false)">Grandma</button>
+        <button class="answer" onclick="mc(this,false)">Monty</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" data-screen="5">
+  <div class="panel">
+    <div class="kicker">Mission 5 • Song language</div>
+    <h2>Move and learn</h2>
+    <img class="banner" src="media/unit8/img04.jpg" alt="Song with prepositions">
+    <div class="audioRow">
+      <button id="audio77Btn" class="audioBtn" onclick="toggleLessonAudio('audio77','audio77Btn')">▶ Play Track 77</button>
+    </div>
+    <audio id="audio77" preload="auto">
+      <source src="media/unit8/audio04.mp3" type="audio/mpeg">
+    </audio>
+    <div class="prepGame">
+      <h3>Preposition Challenge</h3>
+      <p class="prepIntro">Choose the correct preposition: <b>behind</b>, <b>in front of</b>, or <b>between</b>.</p>
+      <div class="prepQuestion" data-answer="between">
+        <div class="prepSentence">1. The pencil is ___ the two books.</div>
+        <div class="prepChoices">
+          <button onclick="checkPrep(this,'behind')">behind</button>
+          <button onclick="checkPrep(this,'in front of')">in front of</button>
+          <button onclick="checkPrep(this,'between')">between</button>
+        </div>
+        <div class="prepFeedback"></div>
+      </div>
+      <div class="prepQuestion" data-answer="behind">
+        <div class="prepSentence">2. Put the pencil ___ your head.</div>
+        <div class="prepChoices">
+          <button onclick="checkPrep(this,'behind')">behind</button>
+          <button onclick="checkPrep(this,'in front of')">in front of</button>
+          <button onclick="checkPrep(this,'between')">between</button>
+        </div>
+        <div class="prepFeedback"></div>
+      </div>
+      <div class="prepQuestion" data-answer="in front of">
+        <div class="prepSentence">3. Put the book ___ your nose.</div>
+        <div class="prepChoices">
+          <button onclick="checkPrep(this,'behind')">behind</button>
+          <button onclick="checkPrep(this,'in front of')">in front of</button>
+          <button onclick="checkPrep(this,'between')">between</button>
+        </div>
+        <div class="prepFeedback"></div>
+      </div>
+      <div class="prepQuestion" data-answer="behind">
+        <div class="prepSentence">4. Put the pencil ___ your ear.</div>
+        <div class="prepChoices">
+          <button onclick="checkPrep(this,'behind')">behind</button>
+          <button onclick="checkPrep(this,'in front of')">in front of</button>
+          <button onclick="checkPrep(this,'between')">between</button>
+        </div>
+        <div class="prepFeedback"></div>
+      </div>
+      <div class="prepQuestion" data-answer="between">
+        <div class="prepSentence">5. The yellow book is ___ the red book and the blue book.</div>
+        <div class="prepChoices">
+          <button onclick="checkPrep(this,'behind')">behind</button>
+          <button onclick="checkPrep(this,'in front of')">in front of</button>
+          <button onclick="checkPrep(this,'between')">between</button>
+        </div>
+        <div class="prepFeedback"></div>
+      </div>
+      <div class="prepScore">⭐ Score: <span id="prepScore">0</span>/5</div>
+    </div>
+
+
+    <div class="task">
+      <h3>Pick the preposition</h3>
+      <div class="q">Put a pencil ___ the books.</div>
+      <div class="answers">
+        <button class="answer" onclick="mc(this,false)">behind</button>
+        <button class="answer" onclick="mc(this,true)">between</button>
+        <button class="answer" onclick="mc(this,false)">under</button>
+        <button class="answer" onclick="mc(this,false)">in front of</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" data-screen="6">
+  <div class="panel">
+    <div class="kicker">Mission 6 • Sounds and spelling</div>
+    <h2>p and pp</h2>
+    <img class="banner" src="media/unit8/img05.jpg" alt="Hippo and panda phonics">
+    <div class="videoLessonWrap">
+      <video class="lessonVideo" controls playsinline preload="metadata">
+        <source src="media/unit8/video01.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+
+    <div class="task">
+      <h3>Complete the words</h3>
+      <div class="fillRow"><b>hi__o</b><input id="hippoGap" maxlength="2" placeholder="missing letters"></div>
+      <div class="fillRow"><b>__anda</b><input id="pandaGap" maxlength="1" placeholder="missing letter"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        <button class="primary" onclick="checkPhonics()">Check</button>
+        <button class="secondary" onclick="resetPhonics()">Reset</button>
+      </div>
+      <div id="phonicsFeedback" class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" data-screen="7">
+  <div class="panel">
+    <div class="kicker">Mission 7 • Ask and answer</div>
+    <h2>Where’s the panda?</h2>
+    <img class="banner" src="media/unit8/img06.jpg" alt="Panda location task">
+    <div class="task"><h3>Answer the questions</h3><div class="questionOnlyList"><div class="questionOnly"><span class="qNum">1</span><span>Where are the blue birds?</span></div><div class="questionOnly"><span class="qNum">2</span><span>Where is the panda?</span></div><div class="questionOnly"><span class="qNum">3</span><span>Where is the snake?</span></div><div class="questionOnly"><span class="qNum">4</span><span>Where is the spider?</span></div><div class="questionOnly"><span class="qNum">5</span><span>Where is the green duck?</span></div><div class="questionOnly"><span class="qNum">6</span><span>Where are the yellow ducks?</span></div><div class="questionOnly"><span class="qNum">7</span><span>Where is the pineapple?</span></div></div></div>
+  </div>
+</section>
+
+<section class="screen" data-screen="8">
+  <div class="panel">
+    <div class="kicker">Story • Unit language in context</div>
+    <h2>Look behind you!</h2>
+    <img class="banner" src="media/unit8/img07.jpg" alt="Story panels">
+    <div class="videoLessonWrap">
+      <video class="lessonVideo" controls playsinline preload="metadata">
+        <source src="media/unit8/video02.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+
+    <div class="task">
+      <h3>Story check</h3>
+      <div class="q">Who comes to help the children?</div>
+      <div class="answers">
+        <button class="answer" onclick="mc(this,true)">Maskman</button>
+        <button class="answer" onclick="mc(this,false)">Monty</button>
+        <button class="answer" onclick="mc(this,false)">Marie</button>
+        <button class="answer" onclick="mc(this,false)">The dog</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" data-screen="9">
+  <div class="panel finalPanel">
+    <div class="kicker">Finished!</div>
+    <h1>Great job! ⭐</h1>
+    <p class="lead">You explored the town, practised plurals and prepositions, worked with spelling, and finished the story.</p>
+    <div id="finalScore" style="font-size:34px;font-weight:900;margin:16px 0"></div>
+    <button class="primary" onclick="restart()">Play again</button>
+  </div>
+</section>
+
+<div class="nav">
+  <button id="backBtn" class="secondary hidden" onclick="prevScreen()">← Back</button>
+  <button id="nextBtn" class="primary" onclick="nextScreen()">Next →</button>
+</div>
+</div>
+
+<script>
+let current=0, score=0;
+const screens=[...document.querySelectorAll('.screen')];
+
+function updateTop(){
+  document.getElementById('progress').style.width=(current/(screens.length-1)*100)+'%';
+  document.getElementById('score').textContent='⭐ '+score;
+  document.getElementById('backBtn').classList.toggle('hidden',current===0);
+  document.getElementById('nextBtn').classList.toggle('hidden',current===screens.length-1);
+  if(current===screens.length-1) document.getElementById('finalScore').textContent='Score: '+score+' / 8';
+}
+function show(n){
+  document.querySelectorAll('audio').forEach(a=>a.pause());
+  document.querySelectorAll('video').forEach(v=>v.pause());
+  document.querySelectorAll('.audioBtn').forEach(b=>b.textContent=b.textContent.replace('⏸ Pause','▶ Play'));
+  n=Math.max(0,Math.min(n,screens.length-1));
+  screens[current].classList.remove('active');
+  current=n;
+  screens[current].classList.add('active');
+  screens[current].scrollTop=0;
+  updateTop();
+}
+function nextScreen(){show(current+1)}
+function prevScreen(){show(current-1)}
+function mc(btn,correct){
+  const task=btn.closest('.task'), buttons=task.querySelectorAll('.answer'), fb=task.querySelector('.feedback');
+  buttons.forEach(b=>b.classList.remove('wrong'));
+  if(correct){
+    btn.classList.add('correct'); fb.textContent='Correct! ⭐'; fb.style.color='#2f9b4a';
+    if(!task.dataset.scored){task.dataset.scored='1';score++;updateTop();}
+  } else {
+    btn.classList.add('wrong'); fb.textContent='Try again.'; fb.style.color='#d54a4a';
+  }
+}
+function checkPhonics(){
+  const h=document.getElementById('hippoGap').value.trim().toLowerCase();
+  const p=document.getElementById('pandaGap').value.trim().toLowerCase();
+  const fb=document.getElementById('phonicsFeedback'), task=fb.closest('.task');
+  if(h==='pp'&&p==='p'){
+    fb.textContent='Correct: hippo, panda ⭐'; fb.style.color='#2f9b4a';
+    if(!task.dataset.scored){task.dataset.scored='1';score++;updateTop();}
+  } else {
+    fb.textContent='Try again.'; fb.style.color='#d54a4a';
+  }
+}
+function resetPhonics(){
+  document.getElementById('hippoGap').value='';
+  document.getElementById('pandaGap').value='';
+  document.getElementById('phonicsFeedback').textContent='';
+}
+
+function toggleLessonAudio(audioId, btnId){
+  const audio=document.getElementById(audioId);
+  const btn=document.getElementById(btnId);
+  document.querySelectorAll('audio').forEach(a=>{
+    if(a!==audio && !a.paused){
+      a.pause();
+      const otherBtn=document.querySelector(`[onclick*="'${a.id}'"]`);
+      if(otherBtn) otherBtn.textContent=otherBtn.textContent.replace('⏸ Pause','▶ Play');
+    }
+  });
+  if(audio.paused){
+    audio.play();
+    btn.textContent=btn.textContent.replace('▶ Play','⏸ Pause');
+  }else{
+    audio.pause();
+    btn.textContent=btn.textContent.replace('⏸ Pause','▶ Play');
+  }
+}
+['audio74','audio75'].forEach(id=>{
+  const a=document.getElementById(id);
+  if(a){
+    a.addEventListener('ended',()=>{
+      const b=document.querySelector(`[onclick*="'${id}'"]`);
+      if(b) b.textContent=b.textContent.replace('⏸ Pause','▶ Play');
+    });
+  }
+});
+
+let prepPoints = 0;
+function checkPrep(btn, choice){
+  const q=btn.closest('.prepQuestion'); if(q.dataset.done==='1') return;
+  const correct=q.dataset.answer, feedback=q.querySelector('.prepFeedback');
+  q.querySelectorAll('button').forEach(b=>b.disabled=true);
+  if(choice===correct){btn.classList.add('correct');feedback.textContent='✅ Great job!';feedback.style.color='#258a3d';prepPoints++;document.getElementById('prepScore').textContent=prepPoints;}
+  else{btn.classList.add('wrong');feedback.textContent='❌ Correct answer: '+correct;feedback.style.color='#c63c58';q.querySelectorAll('button').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('correct')});}
+  q.dataset.done='1';
+}
+function restart(){
+  score=0;
+  document.querySelectorAll('.task').forEach(t=>{
+    delete t.dataset.scored;
+    t.querySelectorAll('.answer').forEach(b=>b.classList.remove('correct','wrong'));
+    const fb=t.querySelector('.feedback'); if(fb) fb.textContent='';
+  });
+  resetPhonics(); show(0);
+}
+updateTop();
+</script>
+</body>
+</html>

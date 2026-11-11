@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Unit 7 — At the Farm</title>
+<style>
+:root {
+  --navy:#173b67; --blue:#35aef2; --blue2:#2287e7; --sky:#eaf8ff;
+  --yellow:#ffd84a; --coral:#ff7c73; --pink:#ff9cca; --mint:#5bd6c1;
+  --lime:#a8df6b; --lav:#c9b1ff; --ok:#35b86c; --bad:#e35b63;
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,#eaf9ff,#fff8e7);color:var(--navy)}
+body{overflow:hidden}
+button,input{font:inherit}
+button{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.app{height:100vh;display:flex;flex-direction:column}
+.topbar{
+  z-index:1200;display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);box-shadow:0 8px 26px rgba(31,110,170,.12)
+}
+.brand{font-size:clamp(17px,2vw,25px);font-weight:950;white-space:nowrap}
+.progressTrack{flex:1;height:14px;border-radius:999px;background:#dceffc;border:2px solid #c7e5f7;overflow:hidden}
+.progressFill{height:100%;width:0;background:linear-gradient(90deg,var(--yellow),#ffb13f);transition:width .25s ease}
+.scoreBadge{padding:7px 12px;border-radius:999px;background:#fff4b8;border:2px solid #ffd65d;font-weight:950;white-space:nowrap}
+.stage{position:relative;flex:1;min-height:0}
+.screen{position:absolute;inset:0;display:none;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:22px 18px 118px}
+.screen.active{display:block}
+.panel{
+  width:min(1220px,100%);margin:0 auto;background:#fff;border-radius:32px;border:3px solid rgba(100,190,240,.20);
+  box-shadow:0 20px 50px rgba(50,120,180,.18);padding:clamp(18px,3vw,34px)
+}
+.mission{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#e5f6ff;color:#1978c9;font-weight:950}
+h1{font-size:clamp(38px,6vw,70px);line-height:.98;margin:16px 0 12px}
+h2{font-size:clamp(28px,4vw,46px);line-height:1.05;margin:14px 0 8px}
+h3{margin:0 0 10px}
+.sub{font-size:clamp(16px,2vw,21px);line-height:1.5;color:#58728f}
+.hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:center}
+.banner{display:block;width:100%;height:auto;object-fit:contain;border-radius:24px;box-shadow:0 12px 30px rgba(29,99,150,.16);pointer-events:none}
+.bigBanner{margin-top:16px}
+.primary,.navbtn,.checkBtn,.softBtn{border:0;border-radius:18px;font-weight:950;position:relative;z-index:1001}
+.primary,.navbtn,.checkBtn{padding:15px 24px;color:white;background:linear-gradient(#4dbaff,#2e85f1);box-shadow:0 6px 0 #1767cf,0 12px 22px rgba(43,125,225,.25)}
+.primary:hover,.navbtn:hover,.checkBtn:hover{transform:translateY(-2px)}
+.primary:active,.navbtn:active,.checkBtn:active{transform:translateY(3px);box-shadow:0 3px 0 #1767cf}
+.softBtn{padding:12px 16px;background:#eff8ff;color:#1f6fa8;border:2px solid #cce8f8}
+.navWrap{position:fixed;left:0;right:0;bottom:0;z-index:1200;padding:12px;background:linear-gradient(transparent,rgba(236,248,255,.90) 30%,rgba(236,248,255,.98));pointer-events:none}
+.nav{width:min(1140px,calc(100% - 18px));margin:0 auto;display:flex;justify-content:space-between;gap:12px;pointer-events:auto}
+.navbtn.back{background:linear-gradient(#fff,#edf7ff);color:#1f6fa8;border:2px solid #cce7f7;box-shadow:0 6px 0 #bcd9ec}
+.qa{margin-top:18px;padding:18px;border-radius:24px;background:#f7fbff;border:3px solid #d8edf9}
+.gameGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.cardBtn{min-height:84px;padding:14px;border-radius:22px;border:3px solid white;box-shadow:0 8px 18px rgba(32,94,142,.10);font-weight:900;color:#183d66}
+.cardBtn:nth-child(5n+1){background:#fff0a8} .cardBtn:nth-child(5n+2){background:#daf6b3}
+.cardBtn:nth-child(5n+3){background:#eadcff} .cardBtn:nth-child(5n+4){background:#ffd6e9}
+.cardBtn:nth-child(5n+5){background:#d8f2ff}
+.cardBtn:hover{transform:translateY(-3px)} .cardBtn.correct{outline:4px solid var(--ok);background:#daf6e3} .cardBtn.wrong{outline:4px solid var(--bad);background:#ffe0e2}
+.feedback{min-height:32px;margin-top:10px;font-weight:950;font-size:18px}
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+.storyGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.storyQ{padding:16px;border-radius:22px;background:#f8fcff;border:3px solid #d8edf9}
+.badge{display:inline-flex;padding:6px 10px;border-radius:999px;background:#fff5bf;border:2px solid #ffe17c;font-weight:900}
+.sortWrap{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.bucket{min-height:150px;padding:14px;border:3px dashed #b8ddf3;border-radius:22px;background:#fbfdff}
+.bucket h3{text-align:center}
+.wordBank{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.wordChip{padding:10px 14px;border:0;border-radius:999px;background:#fff4b8;border:2px solid #ffd65d;font-weight:900}
+.wordChip.selected{outline:4px solid var(--blue)}
+.fillRow{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:12px}
+input[type=text]{width:100%;padding:13px 15px;border-radius:16px;border:3px solid #cce7f7;outline:none;font-size:19px}
+.finalStars{font-size:clamp(46px,8vw,92px);letter-spacing:8px}
+.small{font-size:14px;color:#6f86a0}
+
+.audioRow{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:16px 0 18px}
+.audioBtn{
+  border:0;border-radius:999px;padding:14px 20px;color:#fff;font-weight:950;
+  background:linear-gradient(#51c4ff,#238be8);
+  box-shadow:0 6px 0 #1768c8,0 12px 22px rgba(36,132,224,.22);
+  display:inline-flex;align-items:center;gap:10px;min-width:240px;justify-content:center;
+  position:relative;z-index:1001
+}
+.audioBtn:hover{transform:translateY(-2px)}
+.audioBtn:active{transform:translateY(3px);box-shadow:0 3px 0 #1768c8}
+.audioBtn.playing{background:linear-gradient(#ff9b71,#f06d65);box-shadow:0 6px 0 #ca514c,0 12px 22px rgba(220,92,82,.22)}
+.audioHint{font-size:14px;color:#6d84a0;font-weight:700}
+
+@media(max-width:900px){.hero{grid-template-columns:1fr}.gameGrid{grid-template-columns:repeat(2,1fr)}.storyGrid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.screen{padding:14px 10px 110px}.panel{border-radius:24px;padding:16px}.brand{display:none}.gameGrid,.options,.storyGrid,.sortWrap{grid-template-columns:1fr}.navbtn{padding:13px 18px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand">⭐ Unit 7 • At the Farm</div>
+    <div class="progressTrack"><div class="progressFill" id="progressFill"></div></div>
+    <div class="scoreBadge">⭐ <span id="score">0</span></div>
+  </div>
+
+  <main class="stage">
+    <section class="screen active" data-screen="0">
+      <div class="panel">
+        <div class="hero">
+          <div>
+            <span class="mission">START</span>
+            <h1>At the Farm</h1>
+            <p class="sub">Animals, rooms, likes and dislikes, sounds and a funny bedtime story.</p>
+            <button class="primary" onclick="nextScreen()">Start mission 🚀</button>
+          </div>
+          <img class="banner" src="media/unit7/img01.jpg" alt="At the farm banner">
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="1">
+      <div class="panel">
+        <span class="mission">MISSION 1 • FARM ANIMALS</span>
+        <h2>What can you see?</h2>
+        <p class="sub">Look at the farm. Then choose the correct animal.</p>
+        <div class="audioRow">
+          <button class="audioBtn" id="track65Btn" onclick="toggleLessonAudio('track65','track65Btn')">▶ Track 65 • Listen and point</button>
+          <button class="audioBtn" id="track66Btn" onclick="toggleLessonAudio('track66','track66Btn')">▶ Track 66 • Listen and repeat</button>
+          <span class="audioHint">Tap again to pause.</span>
+        </div>
+        <audio id="track65" preload="auto">
+          <source src="media/unit7/audio01.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="track66" preload="auto">
+          <source src="media/unit7/audio02.mp3" type="audio/mpeg">
+        </audio>
+        <img class="banner bigBanner" src="media/unit7/img01.jpg" alt="Farm animals">
+        <div class="qa">
+          <h3 id="animalQ">Which animal says “Moo”?</h3>
+          <div class="gameGrid" id="animalOpts">
+            <button class="cardBtn" onclick="animalAnswer(this,'cow')">cow</button>
+            <button class="cardBtn" onclick="animalAnswer(this,'duck')">duck</button>
+            <button class="cardBtn" onclick="animalAnswer(this,'frog')">frog</button>
+            <button class="cardBtn" onclick="animalAnswer(this,'goat')">goat</button>
+          </div>
+          <div class="feedback" id="animalFb"></div>
+          <button class="softBtn" onclick="nextAnimalQ()">New question ↻</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="2">
+      <div class="panel">
+        <span class="mission">MISSION 2 • ANIMALS IN THE HOUSE</span>
+        <h2>Where are the animals?</h2>
+        <p class="sub">Use the banner to match animals with rooms and places.</p>
+        <div class="audioRow">
+          <button class="audioBtn" id="track67Btn" onclick="toggleLessonAudio('track67','track67Btn')">▶ Track 67 • Listen and sing</button>
+          <span class="audioHint">Tap again to pause.</span>
+        </div>
+        <audio id="track67" preload="auto">
+          <source src="media/unit7/audio03.mp3" type="audio/mpeg">
+        </audio>
+        <img class="banner bigBanner" src="media/unit7/img02.jpg" alt="Animals in a house">
+        <div class="storyGrid">
+          <div class="storyQ"><span class="badge">1</span><h3>Where are the frogs?</h3><button class="cardBtn" onclick="simpleChoice(this,true,'room1')">in the bathroom</button><button class="cardBtn" onclick="simpleChoice(this,false,'room1')">in the kitchen</button></div>
+          <div class="storyQ"><span class="badge">2</span><h3>Where are the sheep?</h3><button class="cardBtn" onclick="simpleChoice(this,true,'room2')">in the bedroom</button><button class="cardBtn" onclick="simpleChoice(this,false,'room2')">on the armchair</button></div>
+          <div class="storyQ"><span class="badge">3</span><h3>Where are the ducks?</h3><button class="cardBtn" onclick="simpleChoice(this,true,'room3')">on the armchair</button><button class="cardBtn" onclick="simpleChoice(this,false,'room3')">in the cupboard</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="3">
+      <div class="panel">
+        <span class="mission">MISSION 3 • AGREE OR DISAGREE</span>
+        <h2>I love horses.</h2>
+        <p class="sub">Choose the best reply.</p>
+        <div class="audioRow">
+          <button class="audioBtn" id="track69Btn" onclick="toggleLessonAudio('track69','track69Btn')">▶ Track 69 • Listen and answer</button>
+          <button class="audioBtn" id="track70Btn" onclick="toggleLessonAudio('track70','track70Btn')">▶ Track 70 • Listen and repeat</button>
+          <span class="audioHint">Tap again to pause.</span>
+        </div>
+        <audio id="track69" preload="auto"><source src="media/unit7/audio04.mp3" type="audio/mpeg"></audio>
+        <audio id="track70" preload="auto"><source src="media/unit7/audio05.mp3" type="audio/mpeg"></audio>
+        <img class="banner bigBanner" src="media/unit7/img03.jpg" alt="Agreeing and disagreeing">
+        <div class="qa">
+          <h3>Someone says: “I love horses.”</h3>
+          <div class="options">
+            <button class="cardBtn" onclick="simpleChoice(this,true,'agree1')">So do I.</button>
+            <button class="cardBtn" onclick="simpleChoice(this,false,'agree1')">I don’t.</button>
+          </div>
+          <h3 style="margin-top:18px">You do not like cows. Someone says: “I love cows.”</h3>
+          <div class="options">
+            <button class="cardBtn" onclick="simpleChoice(this,false,'agree2')">So do I.</button>
+            <button class="cardBtn" onclick="simpleChoice(this,true,'agree2')">I don’t.</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="4">
+      <div class="panel">
+        <span class="mission">MISSION 4 • CHANT</span>
+        <h2>So do I!</h2>
+        <p class="sub">Read the chant and complete the responses.</p>
+        <div class="audioRow">
+          <button class="audioBtn" id="track71Btn" onclick="toggleLessonAudio('track71','track71Btn')">▶ Track 71 • Listen to the chant</button>
+          <span class="audioHint">Tap again to pause.</span>
+        </div>
+        <audio id="track71" preload="auto"><source src="media/unit7/audio06.mp3" type="audio/mpeg"></audio>
+        <img class="banner bigBanner" src="media/unit7/img04.jpg" alt="Fruit chant">
+        <div class="qa">
+          <div class="storyGrid">
+            <div class="storyQ"><h3>I love watermelon.</h3><button class="cardBtn" onclick="simpleChoice(this,true,'chant1')">So do I.</button><button class="cardBtn" onclick="simpleChoice(this,false,'chant1')">Goodbye.</button></div>
+            <div class="storyQ"><h3>I love coconuts.</h3><button class="cardBtn" onclick="simpleChoice(this,true,'chant2')">So do I.</button><button class="cardBtn" onclick="simpleChoice(this,false,'chant2')">I don’t. Goodbye.</button></div>
+            <div class="storyQ"><h3>I love onions.</h3><button class="cardBtn" onclick="simpleChoice(this,false,'chant3')">So do I.</button><button class="cardBtn" onclick="simpleChoice(this,true,'chant3')">I don’t. Goodbye.</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="5">
+      <div class="panel">
+        <span class="mission">MISSION 5 • READ & CHOOSE</span>
+        <h2>Say and play</h2>
+        <p class="sub">Look carefully at the four groups of animals.</p>
+        <img class="banner bigBanner" src="media/unit7/img05.jpg" alt="Read and choose animal groups">
+        <div class="storyGrid">
+          <div class="storyQ"><span class="badge">1</span><h3>Which group has spiders?</h3><button class="cardBtn" onclick="simpleChoice(this,true,'group1')">Group 1</button><button class="cardBtn" onclick="simpleChoice(this,false,'group1')">Group 3</button></div>
+          <div class="storyQ"><span class="badge">2</span><h3>Which group has frogs?</h3><button class="cardBtn" onclick="simpleChoice(this,true,'group2')">Group 3</button><button class="cardBtn" onclick="simpleChoice(this,false,'group2')">Group 4</button></div>
+          <div class="storyQ"><span class="badge">3</span><h3>Which group has a snake?</h3><button class="cardBtn" onclick="simpleChoice(this,true,'group3')">Group 4</button><button class="cardBtn" onclick="simpleChoice(this,false,'group3')">Group 2</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="6">
+      <div class="panel">
+        <span class="mission">MISSION 6 • SOUNDS & SPELLING</span>
+        <h2>slow • scary • speedy</h2>
+        <p class="sub">Find the beginning sound groups.</p>
+        <div class="videoLessonWrap" style="margin:18px 0 20px;">
+          <video controls preload="metadata" playsinline
+                 style="width:100%;max-height:520px;border-radius:22px;box-shadow:0 12px 30px rgba(23,66,116,.18);background:#000;">
+            <source src="media/unit7/video01.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <img class="banner bigBanner" src="media/unit7/img06.jpg" alt="Sounds and spelling">
+        <div class="qa">
+          <div class="fillRow"><input id="sound1" type="text" placeholder="__ow snail"><button class="checkBtn" onclick="checkSound('sound1','sl','sf1')">Check</button></div><div class="feedback" id="sf1"></div>
+          <div class="fillRow"><input id="sound2" type="text" placeholder="__ary snake"><button class="checkBtn" onclick="checkSound('sound2','sc','sf2')">Check</button></div><div class="feedback" id="sf2"></div>
+          <div class="fillRow"><input id="sound3" type="text" placeholder="__eedy spider"><button class="checkBtn" onclick="checkSound('sound3','sp','sf3')">Check</button></div><div class="feedback" id="sf3"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="7">
+      <div class="panel">
+        <span class="mission">MISSION 7 • PLAY AND SAY</span>
+        <h2>Describe the animals</h2>
+        <p class="sub">Choose the group that matches the clue.</p>
+        <img class="banner bigBanner" src="media/unit7/img07.jpg" alt="Play and say animal groups">
+        <div class="qa">
+          <h3>They’re brown and they’ve got long legs.</h3>
+          <div class="gameGrid">
+            <button class="cardBtn" onclick="simpleChoice(this,false,'describe1')">snails</button>
+            <button class="cardBtn" onclick="simpleChoice(this,true,'describe1')">spiders</button>
+            <button class="cardBtn" onclick="simpleChoice(this,false,'describe1')">ducks</button>
+            <button class="cardBtn" onclick="simpleChoice(this,false,'describe1')">lizards</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="8">
+      <div class="panel">
+        <span class="mission">STORY • BEDTIME</span>
+        <h2>Maskman can’t sleep</h2>
+        <p class="sub">Read the six panels, then answer.</p>
+        <div class="videoLessonWrap" style="margin:18px 0 20px;">
+          <video controls preload="metadata" playsinline
+                 style="width:100%;max-height:520px;border-radius:22px;box-shadow:0 12px 30px rgba(23,66,116,.18);background:#000;">
+            <source src="media/unit7/video02.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <img class="banner bigBanner" src="media/unit7/img08.jpg" alt="Six-panel bedtime story">
+        <div class="storyGrid">
+          <div class="storyQ"><span class="badge">1</span><h3>Why is Marie unhappy?</h3><button class="cardBtn" onclick="simpleChoice(this,true,'story1')">She is trying to sleep.</button><button class="cardBtn" onclick="simpleChoice(this,false,'story1')">She wants to play.</button></div>
+          <div class="storyQ"><span class="badge">2</span><h3>What does Trevor tell Maskman to do?</h3><button class="cardBtn" onclick="simpleChoice(this,true,'story2')">Count sheep.</button><button class="cardBtn" onclick="simpleChoice(this,false,'story2')">Count cows.</button></div>
+          <div class="storyQ"><span class="badge">3</span><h3>What do we get from cows?</h3><button class="cardBtn" onclick="simpleChoice(this,true,'story3')">milk</button><button class="cardBtn" onclick="simpleChoice(this,false,'story3')">eggs</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="9">
+      <div class="panel" style="text-align:center">
+        <span class="mission">FINAL</span>
+        <h1>Farm mission complete!</h1>
+        <div class="finalStars">⭐⭐⭐</div>
+        <p class="sub">You practised animals, places, likes and dislikes, sounds and story comprehension.</p>
+        <p style="font-size:26px;font-weight:950">Your score: <span id="finalScore">0</span> ⭐</p>
+        <button class="primary" onclick="restartLesson()">Play again ↻</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="navWrap">
+    <div class="nav">
+      <button class="navbtn back" id="backBtn" onclick="prevScreen()">← Back</button>
+      <button class="navbtn" id="nextBtn" onclick="nextScreen()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let current=0, score=0, animalIndex=0;
+const screens=[...document.querySelectorAll('.screen')];
+const maxScreen=screens.length-1;
+const awarded=new Set();
+
+const animalQs=[
+  {q:'Which animal says “Moo”?', options:['cow','duck','frog','goat'], answer:'cow'},
+  {q:'Which animal can jump and says “croak”?', options:['sheep','frog','donkey','cow'], answer:'frog'},
+  {q:'Which animal has eight legs?', options:['spider','duck','goat','cow'], answer:'spider'},
+  {q:'Which animal is shown near the entrance?', options:['lizard','cow','sheep','duck'], answer:'lizard'}
+];
+
+
+function audioDefaultLabel(id){
+  if(id==='track65') return '▶ Track 65 • Listen and point';
+  if(id==='track66') return '▶ Track 66 • Listen and repeat';
+  if(id==='track67') return '▶ Track 67 • Listen and sing';
+  if(id==='track69') return '▶ Track 69 • Listen and answer';
+  if(id==='track70') return '▶ Track 70 • Listen and repeat';
+  if(id==='track71') return '▶ Track 71 • Listen to the chant';
+  return '▶ Play';
+}
+function audioPauseLabel(id){
+  if(id==='track65') return '⏸ Track 65 • Pause';
+  if(id==='track66') return '⏸ Track 66 • Pause';
+  if(id==='track67') return '⏸ Track 67 • Pause';
+  if(id==='track69') return '⏸ Track 69 • Pause';
+  if(id==='track70') return '⏸ Track 70 • Pause';
+  if(id==='track71') return '⏸ Track 71 • Pause';
+  return '⏸ Pause';
+}
+function stopAllLessonAudio(exceptId=null){
+  ['track65','track66','track67','track69','track70','track71'].forEach(id=>{
+    const audio=document.getElementById(id);
+    const btn=document.getElementById(id+'Btn');
+    if(!audio||!btn||id===exceptId)return;
+    audio.pause();
+    btn.classList.remove('playing');
+    btn.textContent=audioDefaultLabel(id);
+  });
+}
+function toggleLessonAudio(audioId,btnId){
+  const audio=document.getElementById(audioId);
+  const btn=document.getElementById(btnId);
+  if(!audio||!btn)return;
+  if(audio.paused){
+    stopAllLessonAudio(audioId);
+    audio.play();
+    btn.classList.add('playing');
+    btn.textContent=audioPauseLabel(audioId);
+  }else{
+    audio.pause();
+    btn.classList.remove('playing');
+    btn.textContent=audioDefaultLabel(audioId);
+  }
+}
+['track65','track66','track67','track69','track70','track71'].forEach(id=>{
+  const audio=document.getElementById(id);
+  if(audio){
+    audio.addEventListener('ended',()=>{
+      const btn=document.getElementById(id+'Btn');
+      if(btn){
+        btn.classList.remove('playing');
+        btn.textContent=audioDefaultLabel(id);
+      }
+    });
+  }
+});
+
+function addScore(key,points=1){
+  if(!awarded.has(key)){awarded.add(key);score+=points;document.getElementById('score').textContent=score;}
+}
+function show(n){
+  stopAllLessonAudio();
+  current=Math.max(0,Math.min(maxScreen,n));
+  screens.forEach((s,i)=>s.classList.toggle('active',i===current));
+  document.getElementById('progressFill').style.width=(current/maxScreen*100)+'%';
+  document.getElementById('backBtn').style.visibility=current===0?'hidden':'visible';
+  document.getElementById('nextBtn').style.visibility=current===maxScreen?'hidden':'visible';
+  if(current===maxScreen) document.getElementById('finalScore').textContent=score;
+  screens[current].scrollTop=0;
+}
+function nextScreen(){show(current+1)}
+function prevScreen(){show(current-1)}
+
+function animalAnswer(btn,val){
+  const q=animalQs[animalIndex];
+  const wrap=document.getElementById('animalOpts');
+  [...wrap.children].forEach(b=>b.classList.remove('correct','wrong'));
+  const ok=val===q.answer;
+  btn.classList.add(ok?'correct':'wrong');
+  document.getElementById('animalFb').textContent=ok?'Correct! ✅':'Try again.';
+  if(ok)addScore('animal'+animalIndex);
+}
+function nextAnimalQ(){
+  animalIndex=(animalIndex+1)%animalQs.length;
+  const q=animalQs[animalIndex];
+  document.getElementById('animalQ').textContent=q.q;
+  const wrap=document.getElementById('animalOpts');
+  wrap.innerHTML='';
+  q.options.forEach(o=>{
+    const b=document.createElement('button'); b.className='cardBtn'; b.textContent=o;
+    b.onclick=()=>animalAnswer(b,o); wrap.appendChild(b);
+  });
+  document.getElementById('animalFb').textContent='';
+}
+
+function simpleChoice(btn,ok,key){
+  const parent=btn.parentElement;
+  [...parent.querySelectorAll('.cardBtn')].forEach(b=>b.classList.remove('correct','wrong'));
+  btn.classList.add(ok?'correct':'wrong');
+  if(ok)addScore(key);
+}
+
+function checkSound(inputId,answer,fbId){
+  const v=document.getElementById(inputId).value.trim().toLowerCase();
+  const fb=document.getElementById(fbId);
+  const ok=v===answer;
+  fb.textContent=ok?'Correct! ✅':'Try again.';
+  fb.style.color=ok?'var(--ok)':'var(--bad)';
+  if(ok)addScore('sound_'+inputId);
+}
+
+function restartLesson(){
+  current=0; score=0; animalIndex=0; awarded.clear();
+  document.getElementById('score').textContent='0';
+  document.querySelectorAll('.correct,.wrong').forEach(el=>el.classList.remove('correct','wrong'));
+  ['sound1','sound2','sound3'].forEach(id=>{document.getElementById(id).value='';});
+  ['sf1','sf2','sf3'].forEach(id=>{document.getElementById(id).textContent='';});
+  const q=animalQs[0];
+  document.getElementById('animalQ').textContent=q.q;
+  const wrap=document.getElementById('animalOpts'); wrap.innerHTML='';
+  q.options.forEach(o=>{const b=document.createElement('button');b.className='cardBtn';b.textContent=o;b.onclick=()=>animalAnswer(b,o);wrap.appendChild(b);});
+  document.getElementById('animalFb').textContent='';
+  show(0);
+}
+show(0);
+</script>
+</body>
+</html>

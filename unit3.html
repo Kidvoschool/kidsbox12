@@ -1,0 +1,343 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kids Box 2 Unit 3 Play Time — Interactive Lesson + Workbook</title><style>
+:root{--blue:#168de2;--navy:#174a79;--sky:#dff5ff;--yellow:#ffd64d;--pink:#ff8db7;--green:#9de76b;--purple:#bda3ff;--coral:#ff876e}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 10%,#fff 0,#eafaff 35%,#e8e1ff 100%);font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;color:#183b60;min-height:100vh}.top{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(12px);padding:12px 4vw;border-bottom:2px solid #d4efff;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:950;font-size:clamp(17px,3vw,25px);color:#168de2}.progress{height:10px;background:#dbeaf5;border-radius:99px;overflow:hidden;flex:1;max-width:380px}.bar{height:100%;width:0;background:linear-gradient(90deg,#42c5ff,#8be06b,#ffd64d);transition:width .25s}.count{font-weight:800;white-space:nowrap}.screen{display:none;max-width:1120px;margin:0 auto;padding:28px 20px 110px;min-height:calc(100vh - 70px);overflow-y:auto}.screen.active{display:block;animation:in .25s ease}@keyframes in{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}.panel{background:white;border:3px solid #d5efff;border-radius:30px;padding:clamp(18px,3vw,34px);box-shadow:0 16px 38px #4386b526}.hero{text-align:center;padding:36px 20px}.star{display:inline-grid;place-items:center;background:var(--yellow);color:#17619d;border:5px solid white;outline:3px solid #ffe58a;border-radius:28px;width:82px;height:82px;font-size:42px;transform:rotate(-6deg);box-shadow:0 8px 0 #e7b72c}.hero h1{font-size:clamp(34px,6vw,66px);line-height:1.02;margin:24px 0 10px;color:#117fcb;text-shadow:2px 3px #bceaff}.hero p{font-size:clamp(16px,2vw,21px);color:#50718d}.pill{display:inline-block;border-radius:999px;padding:8px 14px;background:#fff1b8;font-weight:850;color:#875b00}.title{font-size:clamp(25px,4vw,38px);margin:0 0 8px;color:#125a92}.sub{margin:0 0 22px;color:#597b94;font-size:17px}.bookimg{display:block;width:100%;height:auto;max-height:72vh;object-fit:contain;border-radius:18px;background:#f8fcff}.split{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}.btn{border:0;cursor:pointer;touch-action:manipulation;border-radius:17px;padding:13px 20px;font-weight:850;font-size:16px;color:#fff;background:linear-gradient(#45baff,#2188ed);box-shadow:0 5px 0 #1767bd,0 9px 18px #2589dd30;transition:.15s}.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #1767bd}.btn.secondary{background:linear-gradient(#ff9e8a,#f36b63);box-shadow:0 5px 0 #cb514e}.btn.green{background:linear-gradient(#a8e96f,#67c84c);box-shadow:0 5px 0 #439d32}.btn.purple{background:linear-gradient(#c6a8ff,#9874ef);box-shadow:0 5px 0 #7653c8}.nav{position:fixed;z-index:20;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:12px;padding:14px;background:#ffffffed;backdrop-filter:blur(10px);border-top:2px solid #d5efff}.nav .btn{min-width:120px}.nav .hint{font-weight:800;color:#64819a}.wordgrid,.answers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}.word,.answer{border:3px solid white;border-radius:18px;padding:14px 8px;min-height:60px;font-weight:850;font-size:17px;color:#174a79;cursor:pointer;box-shadow:0 5px 14px #235b801a;touch-action:manipulation}.word:nth-child(4n+1),.answer:nth-child(4n+1){background:#fff0a9}.word:nth-child(4n+2),.answer:nth-child(4n+2){background:#d9f8c3}.word:nth-child(4n+3),.answer:nth-child(4n+3){background:#e7ddff}.word:nth-child(4n),.answer:nth-child(4n){background:#ffdce9}.word:active,.answer:active{transform:scale(.98)}.answer.correct{background:#a9efb4!important;border-color:#2eaf55}.answer.wrong{background:#ffc2c2!important;border-color:#e45c5c}.feedback{font-weight:850;min-height:28px;margin:10px 0}.video{width:100%;max-height:70vh;border-radius:20px;background:#111}.video-actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.task{background:#f4fbff;border-radius:22px;padding:20px;margin:18px 0;border:2px solid #e0f3ff}.task h3{margin:0 0 10px}.input{font:inherit;padding:13px;border:2px solid #bddff4;border-radius:14px;width:min(100%,360px);font-weight:700}.end{text-align:center}.bigscore{font-size:56px;color:#168de2;font-weight:950}.small{font-size:14px;color:#69869c}.modal{display:none;position:fixed;inset:0;background:#071b31e8;z-index:50;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modalbox{position:relative;width:min(100%,1000px);background:white;border-radius:22px;padding:12px}.close{position:absolute;right:10px;top:10px;z-index:2;background:#ff7d7d;color:white;border:0;border-radius:50%;width:42px;height:42px;font-size:24px;cursor:pointer}.footerhint{margin-top:15px;color:#6d8aa1;font-size:14px}@media(max-width:760px){.split{grid-template-columns:1fr}.wordgrid,.answers{grid-template-columns:repeat(2,minmax(0,1fr))}.screen{padding:18px 12px 105px}.nav{gap:8px}.nav .btn{min-width:0;flex:1;padding:12px 10px}.nav .hint{display:none}.bookimg{max-height:none}.top{padding:10px 12px}}
+
+/* Added interactive practice screens */
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.choice{background:#fff;border:2px solid #dbeaff;border-radius:17px;padding:14px 12px;text-align:left;font-weight:850;color:#27456c;box-shadow:0 4px 0 #e2edfa;min-height:52px;cursor:pointer}
+.choice:nth-child(4n+1){background:#fff6c9}.choice:nth-child(4n+2){background:#dff8f2}.choice:nth-child(4n+3){background:#fce4ef}.choice:nth-child(4n){background:#eee7ff}
+.choice.selected{border-color:#2e91ed;box-shadow:0 0 0 3px #b8e0ff}.choice.correct{background:#d9f9df;border-color:#3bb76b;color:#176c34}.choice.wrong{background:#ffe0e0;border-color:#ef6464;color:#9b2424}
+.feedback{min-height:28px;font-weight:850;margin:10px 0;color:#53708e}.feedback.good{color:#168446}.feedback.bad{color:#c43c49}
+.chip{background:#fff;border:2px solid #d8e9ff;border-radius:14px;padding:10px 13px;font-weight:800;color:#24466e;box-shadow:0 3px 0 #dcecff;cursor:pointer}
+.chip:nth-child(4n+1){background:#fff3b7}.chip:nth-child(4n+2){background:#dff9ef}.chip:nth-child(4n+3){background:#f9e2f0}.chip:nth-child(4n){background:#e7e2ff}
+.match-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.story-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.story-card{border-radius:17px;background:#fff;border:2px solid #dbeaff;padding:14px}
+@media(max-width:760px){.choices{grid-template-columns:1fr 1fr}}
+@media(max-width:430px){.choices,.match-list,.story-grid{grid-template-columns:1fr}}
+
+
+.wb-page-img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;border-radius:14px}
+.wb-input-row{margin:8px 0}.wb-input-row label{display:block;font-weight:800;color:var(--navy)}
+.wb-input-row .field{margin:5px 0 0}.wb-q{padding:12px;margin:10px 0;border-radius:15px;background:#fff;border:2px solid #e1efff}
+.wb-q .choices{margin-bottom:4px}.wb-q .choice{min-height:46px}
+
+
+.wb-cartoon-wrap{display:flex;flex-direction:column;justify-content:center;gap:12px}.wb-cartoon-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px;background:linear-gradient(135deg,#e8f8ff,#fff2c9,#f6eaff);border:3px solid #fff;border-radius:24px;box-shadow:0 8px 20px #5b9bc222}.toy-tile{min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;padding:10px;border-radius:18px;background:linear-gradient(145deg,#fff,#f3fbff);border:2px solid #d9efff;box-shadow:0 5px 0 #c9e4f5;color:#174a79}.toy-tile span{font-size:clamp(27px,4vw,45px);line-height:1.15}.toy-tile b{font-size:clamp(12px,1.8vw,16px)}.toy-tile small{font-size:12px;color:#52718e}.character-tile{background:linear-gradient(145deg,#fff4cc,#ffe9f3)}.colour-game{padding:14px;border-radius:18px;background:#f4fbff;border:2px solid #d7efff;margin-top:10px}.colour-toys,.colour-swatches{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.colour-toy,.swatch{border:2px solid #d6eaff;border-radius:13px;background:white;padding:9px 12px;font-weight:800;color:#174a79;cursor:pointer}.colour-toy.selected{outline:3px solid #ffd64d;background:#fff4c7}.colour-toy.coloured{box-shadow:inset 0 0 0 4px var(--picked-colour);border-color:var(--picked-colour)}.swatch{background:var(--swatch);color:#183b60;border-color:#fff;box-shadow:0 3px 0 #d4dfec}@media(max-width:650px){.wb-cartoon-board{grid-template-columns:repeat(2,minmax(0,1fr))}.toy-tile{min-height:90px}}
+
+/* Bonus Wordwall and video missions */
+.ww-frame-wrap,.video-embed-wrap{width:100%;overflow:hidden;border:3px solid #d5efff;border-radius:22px;background:#f5fbff;box-shadow:0 10px 24px #4386b51c;margin:18px 0 16px}
+.ww-frame{display:block;width:100%;height:clamp(430px,62vh,620px);border:0;background:white}
+.screen{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.ww-frame-wrap{min-height:430px}
+.video-embed-wrap{aspect-ratio:16/9}
+.yt-frame{display:block;width:100%;height:100%;min-height:260px;border:0}
+.ww-open{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;text-align:center;margin:0 0 14px;padding:13px 20px;border-radius:16px;color:#fff;font-weight:850;cursor:pointer;box-shadow:0 5px 0 #1767cf,0 10px 20px #2b7de13d}
+.ww-open:hover{filter:brightness(1.04);transform:translateY(-1px)}
+.ww-open:active{transform:translateY(2px)}
+@media(max-width:620px){.ww-frame{height:520px}.video-embed-wrap{border-radius:16px}.yt-frame{min-height:220px}.ww-open{width:100%}}
+
+.merge-activity{background:rgba(255,255,255,.62);border-radius:18px;padding:16px;margin-top:22px}.merge-activity h3{margin:0 0 12px;color:#39477d}.merge-activity .task{margin-top:8px}
+
+/* Motivation rewards */
+.reward-bar{position:sticky;top:8px;z-index:40;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:8px auto 14px;padding:9px 12px;max-width:620px;border:2px solid #f4c95d;border-radius:18px;background:#fffdf2;box-shadow:0 4px 0 #ead99e;font-weight:800;color:#654b12}
+.reward-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;background:#fff;border-radius:12px;border:1px solid #f3dfa0}
+.reward-pop{position:fixed;z-index:9999;left:50%;top:18%;transform:translate(-50%,-10px) scale(.8);background:#fff8d8;border:3px solid #f4c542;border-radius:22px;padding:16px 22px;font-size:24px;font-weight:900;box-shadow:0 10px 35px #0002;opacity:0;pointer-events:none;transition:.25s}
+.reward-pop.show{opacity:1;transform:translate(-50%,0) scale(1)}
+.reward-summary{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:14px 0}
+.reward-summary .reward-pill{font-size:20px;padding:10px 14px;background:#fff8df}
+
+.owner-clue-board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0 18px;padding:12px;background:linear-gradient(135deg,#fff9df,#edf8ff);border:2px solid #d9e8f7;border-radius:18px}
+.owner-clue{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px 5px;background:#fff;border:2px solid #e3edf7;border-radius:14px;min-width:0;text-align:center}
+.owner-person{font-size:clamp(24px,4vw,38px)}.owner-toy{font-size:clamp(26px,4vw,40px);background:#f5faff;border-radius:12px;padding:4px 12px}.owner-clue b{color:#275a91}.owner-clue small{color:#536b84;font-weight:700}
+@media(max-width:520px){.owner-clue-board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style></head><body>
+<div class="reward-bar" id="rewardBar" aria-live="polite"><span class="reward-pill">⭐ Stars: <b id="starCount">0</b></span></div><div class="reward-pop" id="rewardPop">⭐ Well done!</div>
+<header class="top"><div class="brand">⭐ KIDS BOX 2</div><div class="progress"><div class="bar" id="bar"></div></div><div class="count" id="count">START</div></header>
+<section class="screen active" data-screen="0"><div class="panel hero"><div class="star">3</div><h1>Play time!</h1><div class="pill">TOYS • UNIT 3</div><p>Welcome to the toy shop! Learn the words, listen, play and solve the missions.</p><div style="font-size:72px;margin:18px">🧸 🚂 🤖 🪁</div><button class="btn" onclick="nextScreen()">▶ Start mission</button><p class="small">All lesson videos and audio are included in this HTML file.</p></div></section>
+<section class="screen" data-screen="1"><div class="panel"><div class="pill">MISSION 1 • VOCABULARY</div><h2 class="title">Toys in the shop</h2><p class="sub">Listen and point. Tap a word to hear its pronunciation.</p><img class="bookimg" src="media/unit3/img01.jpg" alt="Kids Box 2 Unit 3 toys vocabulary page"><div class="wordgrid" id="vocab"></div><div class="task"><b>Quick check:</b> Which word means a toy you can fly in the sky?<div class="answers" data-question="kite"><button class="answer" data-value="robot">robot</button><button class="answer" data-value="kite">kite</button><button class="answer" data-value="watch">watch</button><button class="answer" data-value="tablet">tablet</button></div><div class="feedback"></div></div><div class="merge-activity" style="margin-top:22px;padding-top:18px;border-top:2px dashed #d9dff7"><h3>Extra practice · Find the toys</h3><div class="task">
+<h3>Tap a word to hear it</h3>
+<p>Practise the words from the page.</p>
+<div class="wordbank" id="vocabBank"></div>
+<button class="audio-btn" onclick="speak('Teddy bear. Robot. Alien. Kite. Lorry. Watch. Camera. Board game. Tablet.')">🔊 Listen to all</button>
+<div class="feedback" id="vocabFeedback">Choose a word to hear it.</div>
+</div></div></div></section>
+<section class="screen" data-screen="2"><div class="panel"><div class="pill">MISSION 2 • LISTENING</div><h2 class="title">Listen and say the number</h2><p class="sub">Listen to the book audio, then answer the questions.</p><div class="split"><img class="bookimg" src="media/unit3/img02.jpg" alt="Numbered toys picture"><div><button class="btn" onclick="toggleAudio('a24',this)">🔊 Play Track 24</button><button class="btn purple" onclick="toggleAudio('a25',this)" style="margin-left:8px">🔊 Play Track 25</button><div class="task"><h3>1. These are dolls.</h3><div class="answers" data-question="19"><button class="answer" data-value="18">18</button><button class="answer" data-value="19">19</button><button class="answer" data-value="20">20</button></div><div class="feedback"></div></div><div class="task"><h3>2. This is a robot.</h3><div class="answers" data-question="17"><button class="answer" data-value="15">15</button><button class="answer" data-value="17">17</button><button class="answer" data-value="16">16</button></div><div class="feedback"></div></div></div></div><div class="merge-activity" style="margin-top:22px;padding-top:18px;border-top:2px dashed #d9dff7"><h3>Extra practice · Listen and say the number</h3><div class="task">
+<h3>Which number is it?</h3>
+<p>Choose the number for each toy.</p>
+<div id="numberQuestions"></div>
+<div aria-live="polite" class="feedback" id="numberFeedback"></div>
+<button class="secondary" onclick="resetNumberQuiz()">↻ Try again</button>
+</div></div><div class="merge-activity" style="margin-top:22px;padding-top:18px;border-top:2px dashed #d9dff7"><h3>Extra practice · This / These</h3><div class="task">
+<p><b>This</b> is for one thing near us. <b>These</b> are for more than one thing near us.</p>
+<div id="demonstrativeQuestions"></div>
+<div aria-live="polite" class="feedback" id="demoFeedback"></div>
+<button class="secondary" onclick="resetDemo()">↻ Try again</button>
+</div></div></div></section>
+<section class="screen" data-screen="3"><div class="panel"><div class="pill">MISSION 3 • LANGUAGE</div><h2 class="title">Whose is it?</h2><p class="sub">Listen and repeat. Then choose the correct answer.</p><img class="bookimg" src="media/unit3/img03.jpg" alt="Whose is it language page"><div class="video-actions"><button class="btn" onclick="toggleAudio('a26',this)">🔊 Play Track 26</button><button class="btn purple" onclick="toggleAudio('a27',this)">🔊 Play Track 27</button><button class="btn secondary" onclick="openVideo(0)">▶ Watch language video</button></div><div class="task"><h3>Whose kite is this?</h3><div class="answers" data-question="It's Stella's."><button class="answer" data-value="It's Suzy's.">It's Suzy's.</button><button class="answer" data-value="It's Stella's.">It's Stella's.</button><button class="answer" data-value="It's Tom's.">It's Tom's.</button></div><div class="feedback"></div></div><div class="task"><h3>Complete the sentence: “Whose is this?” “It’s ___.”</h3><input class="input" id="whoseInput" placeholder="Type a name + 's"><button class="btn green" onclick="checkText('whoseInput',['Stella’s','Stella's','Stellas'])">Check</button><div class="feedback" id="whoseFeedback"></div></div><div class="merge-activity" style="margin-top:22px;padding-top:18px;border-top:2px dashed #d9dff7"><h3>Extra practice · Whose is it?</h3><div class="task">
+<h3>Complete the dialogue</h3>
+<p>“Whose is this?”</p>
+<div class="choices" id="whoseChoices">
+<button class="choice" onclick="chooseWhose(this,'It’s Suzy’s.')">It’s Suzy’s.</button>
+<button class="choice" onclick="chooseWhose(this,'It’s Stella’s.')">It’s Stella’s.</button>
+<button class="choice" onclick="chooseWhose(this,'It’s Simon’s.')">It’s Simon’s.</button>
+<button class="choice" onclick="chooseWhose(this,'It’s Tom’s.')">It’s Tom’s.</button>
+</div>
+<div aria-live="polite" class="feedback" id="whoseFeedbackExtra">Look at the dialogue in the picture for the answer.</div>
+<button class="audio-btn" onclick="speak('Whose is this? Is it Suzy’s? No, it isn’t. It’s Stella’s.')">🔊 Listen and repeat</button>
+</div></div></div></section>
+<section class="screen" data-screen="4"><div class="panel"><div class="pill">MISSION 4 • SONG</div><h2 class="title">Whose is this jacket?</h2><p class="sub">Listen and sing. Do karaoke!</p><img class="bookimg" src="media/unit3/img04.jpg" alt="Whose is this jacket song page"><div class="video-actions"><button class="btn" onclick="toggleAudio('a28',this)">🎵 Play Track 28</button><button class="btn purple" onclick="toggleAudio('a29',this)">🎤 Play Track 29</button><button class="btn secondary" onclick="openVideo(2)">▶ Watch song video</button></div><div class="task"><h3>Choose the correct answer</h3><p>Whose are these brown trousers?</p><div class="answers" data-question="They're Tom's."><button class="answer" data-value="They're Tom's.">They're Tom's.</button><button class="answer" data-value="They're Sheila's.">They're Sheila's.</button><button class="answer" data-value="It's John's.">It's John's.</button></div><div class="feedback"></div></div><div class="merge-activity" style="margin-top:22px;padding-top:18px;border-top:2px dashed #d9dff7"><h3>Extra practice · Whose clothes are these?</h3><div class="task">
+<p>Use the song to answer. Choose the owner.</p>
+<div id="clothesQuestions"></div>
+<div aria-live="polite" class="feedback" id="clothesFeedback"></div>
+<button class="audio-btn" onclick="speak('Whose is this jacket? It’s John’s. Whose are these shoes? They’re Sheila’s. Whose is this skirt? It’s Sue’s. Whose are these trousers? They’re Tom’s.')">🔊 Sing / listen to the text</button>
+<p class="small-note">The textbook audio track is not included in the uploaded materials, so this button reads the visible text aloud.</p>
+</div></div></div></section>
+<section class="screen" data-screen="5"><div class="panel"><div class="pill">MISSION 5 • SOUNDS & SPELLING</div><h2 class="title">Monty's sounds and spelling</h2><p class="sub">Watch and say. Hide the five kites and ride the white bike!</p><img class="bookimg" src="media/unit3/img05.jpg" alt="Monty's sounds and spelling page"><div class="video-actions"><button class="btn secondary" onclick="openVideo(1)">▶ Watch Monty's video</button><button class="btn" onclick="toggleAudio('a22',this)">🔊 Play Track 22</button><button class="btn purple" onclick="toggleAudio('a23',this)">🔊 Play Track 23</button></div><div class="task"><h3>Spell the word</h3><p>🪁 k _ t _</p><input class="input" id="spellInput" placeholder="Type the word"><button class="btn green" onclick="checkText('spellInput',['kite'])">Check</button><div class="feedback" id="spellFeedback"></div></div><div class="task"><h3>Which words have the “i_e” sound?</h3><div class="answers" data-question="white|bike|kite"><button class="answer" data-value="white|bike|kite">white, bike, kite</button><button class="answer" data-value="cat|dog|bus">cat, dog, bus</button><button class="answer" data-value="robot|watch|doll">robot, watch, doll</button></div><div class="feedback"></div></div><div class="merge-activity" style="margin-top:22px;padding-top:18px;border-top:2px dashed #d9dff7"><h3>Extra practice · Sounds and spelling</h3><div class="task">
+<h3>Complete the word</h3>
+<p>k _ t _</p>
+<div class="choices" id="spellingChoices">
+<button class="choice" onclick="checkSpelling(this,'kite')">kite</button>
+<button class="choice" onclick="checkSpelling(this,'kete')">kete</button>
+<button class="choice" onclick="checkSpelling(this,'kit')">kit</button>
+<button class="choice" onclick="checkSpelling(this,'kito')">kito</button>
+</div>
+<div aria-live="polite" class="feedback" id="spellingFeedback"></div>
+<button class="audio-btn" onclick="speak('Hide the five kites and ride the white bike! Kite. White. Bike.')">🔊 Listen to the sounds</button>
+</div></div></div></section>
+<section class="screen" data-screen="6"><div class="panel"><div class="pill">MISSION 6 • STORY TIME</div><h2 class="title">Metal Mouth</h2><p class="sub">Watch the video, then act out the story.</p><img class="bookimg" src="media/unit3/img06.jpg" alt="Metal Mouth story page"><div class="video-actions"><button class="btn secondary" onclick="openVideo(3)">▶ Watch the story</button><button class="btn" onclick="toggleAudio('a30',this)">🔊 Play Track 30</button><button class="btn purple" onclick="toggleAudio('a31',this)">🔊 Play Track 31</button></div><div class="task"><h3>What can Metal Mouth do?</h3><div class="answers" data-question="walk|talk|spell"><button class="answer" data-value="walk|talk|spell">He can walk, talk and spell.</button><button class="answer" data-value="fly|sing|dance">He can fly, sing and dance.</button><button class="answer" data-value="swim|cook|run">He can swim, cook and run.</button></div><div class="feedback"></div></div><div class="task"><h3>Finish the spelling: U-g-l-y</h3><input class="input" id="uglyInput" placeholder="Type the word"><button class="btn green" onclick="checkText('uglyInput',['ugly'])">Check</button><div class="feedback" id="uglyFeedback"></div></div><div class="merge-activity" style="margin-top:22px;padding-top:18px;border-top:2px dashed #d9dff7"><h3>Extra practice · Metal Mouth story order</h3><div class="task">
+<p>Read the speech bubbles and put the story in order.</p>
+<div class="story-grid" id="storyOrder">
+<button class="choice" data-order="3" onclick="storyPick(this)">A. “I can walk and I can talk.”</button>
+<button class="choice" data-order="1" onclick="storyPick(this)">B. “Whose is this robot?” “It’s Simon’s.”</button>
+<button class="choice" data-order="4" onclick="storyPick(this)">C. “I know! I know! It’s ugly!”</button>
+<button class="choice" data-order="2" onclick="storyPick(this)">D. “Hello. What’s your name?” “My name is Metal Mouth.”</button>
+</div>
+<div aria-live="polite" class="feedback" id="storyFeedback">Tap the story panels in the correct order: 1, 2, 3, 4.</div>
+<button class="secondary" onclick="resetStory()">↻ Reset order</button>
+<button class="audio-btn" onclick="speak('Whose is this robot? It’s Simon’s. Hello. What’s your name? My name is Metal Mouth. I can walk and I can talk. I know, I know! It’s ugly!')">🔊 Read the story aloud</button>
+<p class="small-note">Watch the story video above, then put the story in order.</p>
+</div></div></div></section>
+<section class="screen" data-screen="7">
+  <div class="panel">
+    <div class="mission-head"><span class="mission-tag">WORKBOOK · VOCABULARY</span><span class="mission-tag">1 / 5</span></div>
+    <h2>Look and write</h2><p>Use the word bank to name the toys. Then check your answers.</p>
+    <div class="grid2"><div class="book-page wb-cartoon-wrap"><div class="wb-cartoon-board"><div class="toy-tile"><span>🚚</span><b>lorry</b></div><div class="toy-tile"><span>📱</span><b>tablet</b></div><div class="toy-tile"><span>📷</span><b>camera</b></div><div class="toy-tile"><span>⌚</span><b>watch</b></div><div class="toy-tile"><span>🤖</span><b>robot</b></div><div class="toy-tile"><span>🧸</span><b>teddy bear</b></div></div><p class="caption">Cartoon activity</p></div>
+      <div class="task"><h3>Complete the words</h3><p class="small-note">Word bank: camera · teddy · tablet · robot · watch · lorry</p>
+        <div class="wb-input-row"><label>1. 🚚 <input class="field" id="wbv1" placeholder="toy name"></label></div>
+        <div class="wb-input-row"><label>2. 📱 <input class="field" id="wbv2" placeholder="toy name"></label></div>
+        <div class="wb-input-row"><label>3. 📷 <input class="field" id="wbv3" placeholder="toy name"></label></div>
+        <div class="wb-input-row"><label>4. ⌚ <input class="field" id="wbv4" placeholder="toy name"></label></div>
+        <div class="wb-input-row"><label>5. 🤖 <input class="field" id="wbv5" placeholder="toy name"></label></div>
+        <div class="wb-input-row"><label>6. 🧸 <input class="field" id="wbv6" placeholder="teddy / teddy bears"></label></div>
+        <div class="actions"><button class="primary" onclick="checkWorkbookWords()">Check answers</button><button class="secondary" onclick="resetWorkbookWords()">Try again</button></div>
+        <p id="wbvFeedback" class="feedback" aria-live="polite"></p>
+      </div>
+    </div>
+    <div class="task" style="margin-top:18px"><h3>Listen and colour</h3><div class="colour-game" id="wbColourGame"><p><b>Colour the toy!</b> Listen to Track 4, choose a toy, then tap a colour.</p><div class="colour-toys"><button class="colour-toy" data-toy="kite">🪁 Kite</button><button class="colour-toy" data-toy="robot">🤖 Robot</button><button class="colour-toy" data-toy="lorry">🚚 Lorry</button><button class="colour-toy" data-toy="teddy">🧸 Teddy</button><button class="colour-toy" data-toy="camera">📷 Camera</button></div><div class="colour-swatches"><button class="swatch" data-colour="#ff5b69" style="--swatch:#ff5b69">Red</button><button class="swatch" data-colour="#ffd84d" style="--swatch:#ffd84d">Yellow</button><button class="swatch" data-colour="#58a9ff" style="--swatch:#58a9ff">Blue</button><button class="swatch" data-colour="#65cb82" style="--swatch:#65cb82">Green</button><button class="swatch" data-colour="#bd8cff" style="--swatch:#bd8cff">Purple</button></div><p id="wbColourFeedback" class="feedback" aria-live="polite">Choose a toy first.</p></div><p>Listen to the Workbook audio track, then colour the pictures on the workbook page.</p><audio id="wbAudio4" preload="metadata" src="media/unit3/audio01.mp3"></audio><button class="audio-btn" onclick="toggleAudio('wbAudio4',this)">▶ Play Track 4</button></div>
+  </div>
+</section>
+
+<section class="screen" data-screen="8">
+  <div class="panel"><div class="mission-head"><span class="mission-tag">WORKBOOK · SPELLING</span><span class="mission-tag">2 / 5</span></div>
+    <h2>Look, write and colour</h2><div class="grid2"><div class="book-page wb-cartoon-wrap"><div class="wb-cartoon-board"><div class="toy-tile"><span>📷📷</span><b>cameras</b></div><div class="toy-tile"><span>🤖</span><b>robot</b></div><div class="toy-tile"><span>👾👾👾</span><b>aliens</b></div><div class="toy-tile"><span>⌚⌚⌚⌚</span><b>watches</b></div><div class="toy-tile"><span>🪁🪁</span><b>kites</b></div><div class="toy-tile"><span>🚚🚚🚚🚚🚚</span><b>lorries</b></div></div><p class="caption">Cartoon activity</p></div>
+      <div class="task"><h3>Spell the toy words</h3><p>Complete each word. Type the missing toy name.</p>
+        <div class="wb-input-row"><label>1. six black <input class="field" id="wbs1" placeholder="cameras"></label></div>
+        <div class="wb-input-row"><label>2. one purple <input class="field" id="wbs2" placeholder="robot"></label></div>
+        <div class="wb-input-row"><label>3. three green <input class="field" id="wbs3" placeholder="aliens"></label></div>
+        <div class="wb-input-row"><label>4. four brown <input class="field" id="wbs4" placeholder="watches"></label></div>
+        <div class="wb-input-row"><label>5. two yellow <input class="field" id="wbs5" placeholder="kites"></label></div>
+        <div class="wb-input-row"><label>6. five grey <input class="field" id="wbs6" placeholder="lorries"></label></div>
+        <div class="actions"><button class="primary" onclick="checkWorkbookSpelling()">Check answers</button><button class="secondary" onclick="resetWorkbookSpelling()">Try again</button></div><p id="wbsFeedback" class="feedback" aria-live="polite"></p>
+      </div></div>
+  </div>
+</section>
+
+<section class="screen" data-screen="9">
+  <div class="panel"><div class="mission-head"><span class="mission-tag">WORKBOOK · GRAMMAR</span><span class="mission-tag">3 / 5</span></div>
+    <h2>This is or These are?</h2><div class="grid2"><div class="book-page wb-cartoon-wrap"><div class="wb-cartoon-board"><div class="toy-tile"><span>🪆</span><b>This is a doll.</b></div><div class="toy-tile"><span>🎮</span><b>This is a computer game.</b></div><div class="toy-tile"><span>🚗🚗</span><b>These are cars.</b></div><div class="toy-tile"><span>🧸🧸</span><b>These are teddies.</b></div><div class="toy-tile"><span>🤖</span><b>This is a robot.</b></div><div class="toy-tile"><span>⌚⌚</span><b>These are watches.</b></div></div><p class="caption">Cartoon activity</p></div>
+      <div class="task"><h3>Read and circle</h3><div id="wbGrammarQuestions"></div><p id="wbGrammarFeedback" class="feedback" aria-live="polite"></p><button class="secondary" onclick="resetWorkbookGrammar()">Reset grammar</button>
+        <hr style="border:0;border-top:2px solid #e1efff;margin:20px 0"><h3>Whose is it?</h3><p>Look at the picture clues first, then choose the owner for each toy.</p>
+        <div class="owner-clue-board" aria-label="Picture clues showing who owns each toy">
+          <div class="owner-clue"><span class="owner-person">👦🏻</span><b>Ben</b><span class="owner-toy">✈️</span><small>plane</small></div>
+          <div class="owner-clue"><span class="owner-person">👨🏻</span><b>Bill</b><span class="owner-toy">🚚</span><small>lorry</small></div>
+          <div class="owner-clue"><span class="owner-person">👧🏻</span><b>Lucy</b><span class="owner-toy">🪆</span><small>doll</small></div>
+          <div class="owner-clue"><span class="owner-person">🧑🏻</span><b>Tony</b><span class="owner-toy">⌚</span><small>watch</small></div>
+        </div>
+        <div id="wbWhoseQuestions"></div><p id="wbWhoseFeedback" class="feedback" aria-live="polite"></p><button class="secondary" onclick="resetWorkbookWhose()">Reset answers</button>
+      </div></div>
+  </div>
+</section>
+
+
+
+<section class="screen" data-screen="10">
+  <div class="panel"><div class="mission-head"><span class="mission-tag">WORKBOOK · READING & WRITING</span><span class="mission-tag">5 / 5</span></div>
+    <h2>Read and write: Fred or Zoe</h2><div class="grid2"><div class="book-page wb-cartoon-wrap"><div class="wb-cartoon-board"><div class="toy-tile character-tile"><span>👦🏻</span><b>Fred</b><small>alien · five lorries · train</small></div><div class="toy-tile character-tile"><span>👧🏻</span><b>Zoe</b><small>robot · two computer games · kite</small></div></div><p class="caption">Cartoon activity</p></div>
+      <div class="task"><h3>Who has got it?</h3><p>Read Fred’s and Zoe’s texts, then choose the correct name.</p><div id="wbReadingQuestions"></div><p id="wbReadingFeedback" class="feedback" aria-live="polite"></p><button class="secondary" onclick="resetWorkbookReading()">Try again</button>
+        <div style="margin-top:20px;padding:16px;border-radius:18px;background:#fff5c7"><b>Homework ⭐</b><p>Complete Workbook Unit 3, pages 1–5. Finish unanswered questions and colour the pictures. Bring your completed workbook to the next lesson.</p></div>
+      </div></div>
+  </div>
+</section>
+<section class="screen" data-screen="11"><div class="panel"><div class="mission-head"><span class="mission-tag">BONUS MISSION 1 · WORDWALL</span><span>🧸 Word explorer</span></div><h2 class="title">Play time! Wordlist</h2><p class="sub">Practise the Unit 3 toy words. Play the activity below, or open it on Wordwall.</p><div class="ww-frame-wrap"><iframe class="ww-frame" src="https://wordwall.net/embed/5522145" title="Play time! Wordlist on Wordwall" loading="lazy" allowfullscreen></iframe></div><p class="small-note">If the activity does not load inside this screen, use the button below to open it on Wordwall.</p><a class="primary ww-open" href="https://wordwall.net/ru/resource/5522145/kids-box-2-unit-3-play-time-wordlist" target="_blank" rel="noopener">Open activity on Wordwall ↗</a><div class="nav"><button class="secondary" onclick="prevScreen()">← Back</button><button class="primary next" onclick="nextScreen()">Next →</button></div></div></section>
+<section class="screen" data-screen="12"><div class="panel"><div class="mission-head"><span class="mission-tag">BONUS MISSION 2 · WORDWALL</span><span>🚂 Toy challenge</span></div><h2 class="title">Toys</h2><p class="sub">Unscramble the toy words: kite, bike, alien, lorry, robot, watch, tablet, board game, teddy bear and camera.</p><div class="ww-frame-wrap"><iframe class="ww-frame" src="https://wordwall.net/embed/99068468" title="Toys anagram on Wordwall" loading="lazy" allowfullscreen></iframe></div><p class="small-note">If the activity does not load inside this screen, use the button below to open it on Wordwall.</p><a class="primary ww-open" href="https://wordwall.net/resource/99068468/kids-box-2-unit-3-toys" target="_blank" rel="noopener">Open activity on Wordwall ↗</a><div class="nav"><button class="secondary" onclick="prevScreen()">← Back</button><button class="primary next" onclick="nextScreen()">Next →</button></div></div></section>
+<section class="screen" data-screen="13"><div class="panel"><div class="mission-head"><span class="mission-tag">BONUS MISSION 3 · GRAMMAR</span><span>🔎 This or these?</span></div><h2 class="title">This / These</h2><p class="sub">Choose the correct form for one object or more than one object.</p><div class="ww-frame-wrap"><iframe class="ww-frame" src="https://wordwall.net/embed/74926832" title="This and these on Wordwall" loading="lazy" allowfullscreen></iframe></div><p class="small-note">If the activity does not load inside this screen, use the button below to open it on Wordwall.</p><a class="primary ww-open" href="https://wordwall.net/ru/resource/74926832/english/kids-box-2-unit-3-this-these" target="_blank" rel="noopener">Open activity on Wordwall ↗</a><div class="nav"><button class="secondary" onclick="prevScreen()">← Back</button><button class="primary next" onclick="nextScreen()">Next →</button></div></div></section>
+<section class="screen" data-screen="14"><div class="panel"><div class="mission-head"><span class="mission-tag">BONUS MISSION 4 · POSSESSIVES</span><span>🕵️ Whose is it?</span></div><h2 class="title">Whose?</h2><p class="sub">Look carefully and choose who each toy or feature belongs to.</p><div class="ww-frame-wrap"><iframe class="ww-frame" src="https://wordwall.net/embed/58741987" title="Whose quiz on Wordwall" loading="lazy" allowfullscreen></iframe></div><p class="small-note">If the activity does not load inside this screen, use the button below to open it on Wordwall.</p><a class="primary ww-open" href="https://wordwall.net/ru/resource/58741987/kids-box-2-unit-3-whose" target="_blank" rel="noopener">Open activity on Wordwall ↗</a><div class="nav"><button class="secondary" onclick="prevScreen()">← Back</button><button class="primary next" onclick="nextScreen()">Next →</button></div></div></section>
+
+<section class="screen" data-screen="15"><div class="panel end"><div class="star">🏆</div><h2 class="title">Mission complete!</h2><p class="sub">You explored the toy shop, practised English and met Metal Mouth.</p><div class="bigscore" id="score">0 ⭐</div><p id="resultText">Keep practising your toy words!</p><h3>🏆 Your rewards</h3><div class="reward-summary"><span class="reward-pill">⭐ <b id="finalStars">0</b> stars</span></div><p class="sub" id="rewardMessage">Complete activities correctly to collect your prizes!</p><button class="btn" onclick="restart()">↻ Play again</button><p class="footerhint">Vocabulary: lorry, kite, watch, camera, board game, alien, robot, teddy bear, tablet, doll, train, bike, white, ugly.</p></div></section>
+<div class="nav" id="nav" style="display:none"><button class="btn secondary" onclick="prevScreen()">← Back</button><span class="hint" id="navhint">MISSION 1</span><button class="btn" id="nextBtn" onclick="nextScreen()">Next →</button></div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeVideo()"><div class="modalbox"><button class="close" onclick="closeVideo()" aria-label="Close video">×</button><video class="video" id="modalVideo" controls playsinline></video></div></div>
+<audio id="a25" preload="none" src="media/unit3/audio02.mp3"></audio>
+<audio id="a23" preload="none" src="media/unit3/audio03.mp3"></audio>
+<audio id="a28" preload="none" src="media/unit3/audio04.mp3"></audio>
+<audio id="a31" preload="none" src="media/unit3/audio05.mp3"></audio>
+<audio id="a30" preload="none" src="media/unit3/audio06.mp3"></audio>
+<audio id="a24" preload="none" src="media/unit3/audio07.mp3"></audio>
+<audio id="a26" preload="none" src="media/unit3/audio08.mp3"></audio>
+<audio id="a27" preload="none" src="media/unit3/audio09.mp3"></audio>
+<audio id="a29" preload="none" src="media/unit3/audio10.mp3"></audio>
+<audio id="a22" preload="none" src="media/unit3/audio11.mp3"></audio>
+<script>
+const VIDEOS=["media/unit3/video01.mp4","media/unit3/video02.mp4","media/unit3/video03.mp4","media/unit3/video04.mp4"];
+const screens=[...document.querySelectorAll('.screen')];let current=0,score=0;const total=screens.length;
+function show(n){current=Math.max(0,Math.min(total-1,n));screens.forEach((s,i)=>s.classList.toggle('active',i===current));document.getElementById('bar').style.width=(current/(total-1)*100)+'%';document.getElementById('count').textContent=current===0?'START':current===total-1?'FINISH':`${current} / ${total-2}`;document.getElementById('nav').style.display=current===0?'none':'flex';document.getElementById('navhint').textContent=current===total-1?'FINISH':`MISSION ${current}`;document.getElementById('nextBtn').textContent=current===total-2?'Finish →':current===total-1?'Finish':'Next →';if(current===total-1){document.getElementById('score').textContent=score+' ⭐';document.getElementById('resultText').textContent=score>=5?'Brilliant work! You are a toy-shop expert!':'Good work! Replay the missions to earn more stars.'}window.scrollTo({top:0,behavior:'smooth'})}
+function nextScreen(){if(current<total-1)show(current+1)}function prevScreen(){if(current>0)show(current-1)}function restart(){score=0;rewardCounts={stars:0};extraAnswered.clear();updateRewards();document.querySelectorAll('.answer').forEach(b=>b.classList.remove('correct','wrong'));document.querySelectorAll('.feedback').forEach(f=>f.textContent='');document.querySelectorAll('.input').forEach(i=>i.value='');show(0)}
+function toggleAudio(id,btn){const a=document.getElementById(id);if(!a)return;document.querySelectorAll('audio').forEach(x=>{if(x!==a){x.pause()}});if(a.paused){a.play().then(()=>{btn.dataset.playing='1';btn.textContent=btn.textContent.replace('Play','Pause').replace('▶','⏸')}).catch(()=>{btn.textContent='Audio unavailable'})}else{a.pause();btn.dataset.playing='0';btn.textContent=btn.textContent.replace('Pause','Play').replace('⏸','▶')}}
+document.querySelectorAll('audio').forEach(a=>a.addEventListener('ended',()=>{document.querySelectorAll('.video-actions .btn').forEach(b=>{b.textContent=b.textContent.replace('Pause','Play').replace('⏸','▶')})}));
+function openVideo(i){const v=document.getElementById('modalVideo');v.src=VIDEOS[i];document.getElementById('modal').classList.add('open');v.play().catch(()=>{});document.body.style.overflow='hidden'}function closeVideo(){const v=document.getElementById('modalVideo');v.pause();v.removeAttribute('src');v.load();document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo()});
+const words=['lorry','kite','watch','camera','board game','alien','robot','teddy bear','tablet','doll','train','bike','teddy bears','kites','robots','watches','cameras'];const vg=document.getElementById('vocab');words.forEach(w=>{const b=document.createElement('button');b.className='word';b.textContent='🔊 '+w;b.onclick=()=>{if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(w);u.lang='en-GB';u.rate=.78;speechSynthesis.speak(u)}};vg.appendChild(b)});
+document.querySelectorAll('.answers').forEach(group=>group.querySelectorAll('.answer').forEach(btn=>btn.addEventListener('click',()=>{const fb=group.parentElement.querySelector('.feedback');group.querySelectorAll('.answer').forEach(x=>x.classList.remove('correct','wrong'));if(btn.dataset.value===group.dataset.question){btn.classList.add('correct');if(!btn.dataset.scored){score++;btn.dataset.scored='1'}fb.textContent='Correct! ⭐ Well done!'}else{btn.classList.add('wrong');fb.textContent='Not quite. Try again!';}})));
+function checkText(id,answers){const input=document.getElementById(id),v=input.value.trim().toLowerCase().replace(/[’]/g,"'");const ok=answers.map(x=>x.toLowerCase().replace(/[’]/g,"'")).includes(v);const fb=document.getElementById(id.replace('Input','Feedback'));if(ok){fb.textContent='Correct! ⭐';fb.style.color='#239447';if(!input.dataset.scored){score++;input.dataset.scored='1'}}else{fb.textContent='Try again!';fb.style.color='#d94b4b'}}
+
+/* Interactive tasks added from the supplementary lesson */
+const extraAnswered = new Set();
+let rewardCounts={stars:0};let rewardKinds={};
+function updateRewards(){
+  const stars = document.getElementById('starCount');
+  if(stars) stars.textContent = String(rewardCounts.stars || 0);
+  
+}
+function addStar(key){if(!extraAnswered.has(key)){extraAnswered.add(key);score++;const kind='stars';rewardCounts.stars++;updateRewards();const pop=document.getElementById('rewardPop');if(pop){pop.textContent='⭐ Star earned!';pop.classList.add('show');clearTimeout(window.rewardPopTimer);window.rewardPopTimer=setTimeout(()=>pop.classList.remove('show'),1100);}}}
+function speak(text){if(!('speechSynthesis' in window)){return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-GB';u.rate=.82;u.pitch=1.05;window.speechSynthesis.speak(u);}
+const extraVocab=['teddy bear','robot','alien','kite','lorry','watch','camera','board game','tablet'];
+const extraVocabBank=document.getElementById('vocabBank');
+if(extraVocabBank){extraVocab.forEach(word=>{const b=document.createElement('button');b.className='chip';b.textContent=word;b.onclick=()=>{speak(word);const f=document.getElementById('vocabFeedback');if(f)f.textContent='Listen and repeat: '+word+'.'};extraVocabBank.appendChild(b);});}
+const extraNumData=[
+ {q:'Robot',a:'17',opts:['17','18','19','20']},{q:'Camera',a:'18',opts:['18','20','14','15']},
+ {q:'Dolls',a:'19',opts:['19','17','12','13']},{q:'Tablet',a:'16',opts:['16','11','14','20']},
+ {q:'Teddy bear',a:'14',opts:['14','15','18','19']},{q:'Board games',a:'12',opts:['12','13','16','17']}
+];
+function renderNumberQuiz(){const root=document.getElementById('numberQuestions');if(!root)return;root.innerHTML='';extraNumData.forEach((d,i)=>{const wrap=document.createElement('div');wrap.style.marginBottom='15px';wrap.innerHTML='<b>'+d.q+'</b><div class="choices">'+d.opts.map(o=>'<button class="choice" data-i="'+i+'" data-a="'+o+'">'+o+'</button>').join('')+'</div>';root.appendChild(wrap)});root.querySelectorAll('button').forEach(b=>b.onclick=()=>{const d=extraNumData[+b.dataset.i],good=b.dataset.a===d.a,group=b.parentElement;group.querySelectorAll('button').forEach(x=>x.classList.remove('correct','wrong'));b.classList.add(good?'correct':'wrong');if(good)addStar('extra-num-'+b.dataset.i);const f=document.getElementById('numberFeedback');f.textContent=good?'Correct! ⭐':'Try again. Look carefully at the picture.';f.className='feedback '+(good?'good':'bad')});}
+function resetNumberQuiz(){document.querySelectorAll('#numberQuestions .choice').forEach(b=>b.classList.remove('correct','wrong'));const f=document.getElementById('numberFeedback');if(f){f.textContent='Try again!';f.className='feedback';}}
+const extraDemoData=[{q:'One robot: ___ is a robot.',a:'This',opts:['This','These']},{q:'Two dolls: ___ are dolls.',a:'These',opts:['This','These']},{q:'One teddy bear: ___ is a teddy bear.',a:'This',opts:['This','These']},{q:'Several board games: ___ are board games.',a:'These',opts:['This','These']}];
+function renderDemo(){const root=document.getElementById('demonstrativeQuestions');if(!root)return;root.innerHTML='';extraDemoData.forEach((d,i)=>{const box=document.createElement('div');box.style.marginBottom='14px';box.innerHTML='<b>'+d.q+'</b><div class="choices">'+d.opts.map(o=>'<button class="choice" data-i="'+i+'" data-a="'+o+'">'+o+'</button>').join('')+'</div>';root.appendChild(box)});root.querySelectorAll('button').forEach(b=>b.onclick=()=>{const i=+b.dataset.i,good=b.dataset.a===extraDemoData[i].a;b.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('correct','wrong'));b.classList.add(good?'correct':'wrong');if(good)addStar('extra-demo-'+i);const f=document.getElementById('demoFeedback');f.textContent=good?'Correct!':'Not quite. Count the things.';f.className='feedback '+(good?'good':'bad')});}
+function resetDemo(){document.querySelectorAll('#demonstrativeQuestions .choice').forEach(b=>b.classList.remove('correct','wrong'));const f=document.getElementById('demoFeedback');if(f){f.textContent='Try again!';f.className='feedback';}}
+function chooseWhose(btn,answer){document.querySelectorAll('#whoseChoices .choice').forEach(b=>b.classList.remove('correct','wrong'));const good=answer==='It’s Stella’s.';btn.classList.add(good?'correct':'wrong');const f=document.getElementById('whoseFeedbackExtra');if(f){f.textContent=good?'Correct! It’s Stella’s. ⭐':'Try again. The dialogue says: “No, it isn’t. It’s Stella’s.”';f.className='feedback '+(good?'good':'bad');}if(good)addStar('extra-whose');}
+const extraClothes=[{q:'Whose is this jacket?',a:'John’s',opts:['John’s','Sue’s','Tom’s']},{q:'Whose are these shoes?',a:'Sheila’s',opts:['Sheila’s','John’s','Tom’s']},{q:'Whose is this skirt?',a:'Sue’s',opts:['Sue’s','Sheila’s','John’s']},{q:'Whose are these trousers?',a:'Tom’s',opts:['Tom’s','Sue’s','Sheila’s']}];
+function renderClothes(){const root=document.getElementById('clothesQuestions');if(!root)return;root.innerHTML='';extraClothes.forEach((d,i)=>{const box=document.createElement('div');box.style.marginBottom='12px';box.innerHTML='<b>'+d.q+'</b><div class="choices">'+d.opts.map(o=>'<button class="choice" data-i="'+i+'" data-a="'+o+'">'+o+'</button>').join('')+'</div>';root.appendChild(box)});root.querySelectorAll('button').forEach(b=>b.onclick=()=>{const i=+b.dataset.i,good=b.dataset.a===extraClothes[i].a;b.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('correct','wrong'));b.classList.add(good?'correct':'wrong');if(good)addStar('extra-clothes-'+i);const f=document.getElementById('clothesFeedback');f.textContent=good?'Correct!':'Try again. Check the song text.';f.className='feedback '+(good?'good':'bad')});}
+function checkSpelling(btn,word){document.querySelectorAll('#spellingChoices .choice').forEach(b=>b.classList.remove('correct','wrong'));const good=word==='kite';btn.classList.add(good?'correct':'wrong');const f=document.getElementById('spellingFeedback');if(f){f.textContent=good?'Correct spelling: K-I-T-E! ⭐':'Try again. The word has four letters.';f.className='feedback '+(good?'good':'bad');}if(good)addStar('extra-spelling');}
+let extraStorySequence=[];
+function storyPick(btn){if(btn.classList.contains('selected'))return;btn.classList.add('selected');extraStorySequence.push({btn,order:+btn.dataset.order});const f=document.getElementById('storyFeedback');if(extraStorySequence.length<4){f.textContent='Good. Choose the next panel ('+(extraStorySequence.length+1)+' of 4).';return;}const ok=extraStorySequence.every((x,i)=>x.order===i+1);extraStorySequence.forEach((x,i)=>x.btn.classList.add(ok?'correct':(x.order===i+1?'correct':'wrong')));f.textContent=ok?'Perfect order! You got the story right. ⭐':'Not quite. Reset and try: robot ownership → name → abilities → reaction.';f.className='feedback '+(ok?'good':'bad');if(ok)addStar('extra-story');}
+function resetStory(){extraStorySequence=[];document.querySelectorAll('#storyOrder .choice').forEach(b=>b.classList.remove('selected','correct','wrong'));const f=document.getElementById('storyFeedback');if(f){f.textContent='Tap the story panels in the correct order: 1, 2, 3, 4.';f.className='feedback';}}
+function restartLesson(){score=0;extraAnswered.clear();document.querySelectorAll('.choice').forEach(b=>b.classList.remove('correct','wrong','selected'));document.querySelectorAll('.feedback').forEach(f=>{f.textContent='';f.className='feedback'});document.getElementById('score').textContent='0';resetNumberQuiz();resetDemo();resetStory();show(0);}
+renderNumberQuiz();renderDemo();renderClothes();
+
+
+const wbGrammarData=[
+ {q:'A computer game',a:'This is',opts:['This is','These are']},
+ {q:'Cars',a:'These are',opts:['This is','These are']},
+ {q:'Teddies',a:'These are',opts:['This is','These are']},
+ {q:'A robot',a:'This is',opts:['This is','These are']},
+ {q:'Watches',a:'These are',opts:['This is','These are']}
+];
+const wbWhoseData=[
+ {q:'Whose is the plane?',a:'Ben',opts:['Ben','Tony','Bill']},
+ {q:'Whose is the lorry?',a:'Bill',opts:['Bill','Kim','Lucy']},
+ {q:'_____ is the doll? It’s Lucy’s.',a:'Whose',opts:['Whose','Who','What']},
+ {q:'Whose is the watch?',a:'Tony',opts:['Tony','Ben','Kim']}
+];
+const wbReadingData=[
+ {q:'_____ has got a robot.',a:'Zoe',opts:['Fred','Zoe']},
+ {q:'_____ has got an alien.',a:'Fred',opts:['Fred','Zoe']},
+ {q:'_____ has got five lorries.',a:'Fred',opts:['Fred','Zoe']},
+ {q:'_____ has got two computer games.',a:'Zoe',opts:['Fred','Zoe']},
+ {q:'_____’s favourite toy is a kite.',a:'Zoe',opts:['Fred','Zoe']},
+ {q:'_____’s favourite toy is a train.',a:'Fred',opts:['Fred','Zoe']}
+];
+function renderWorkbookChoiceTask(rootId,data,feedbackId,taskKey){
+ const root=document.getElementById(rootId);if(!root)return;root.innerHTML='';
+ data.forEach((d,i)=>{const box=document.createElement('div');box.className='wb-q';box.innerHTML='<b>'+(i+1)+'. '+d.q+'</b><div class="choices">'+d.opts.map(o=>'<button class="choice" data-i="'+i+'" data-a="'+o.replace(/"/g,'&quot;')+'">'+o+'</button>').join('')+'</div>';root.appendChild(box)});
+ root.querySelectorAll('button.choice').forEach(btn=>btn.addEventListener('click',()=>{
+  const d=data[+btn.dataset.i],good=btn.dataset.a===d.a;
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+  btn.classList.add(good?'correct':'wrong');
+  const fb=document.getElementById(feedbackId);fb.textContent=good?'Correct! ⭐':'Try again!';fb.className='feedback '+(good?'good':'bad');
+  if(good&&typeof addStar==='function')addStar(taskKey+'-'+btn.dataset.i);
+ }));
+}
+function initWorkbookTasks(){
+ renderWorkbookChoiceTask('wbGrammarQuestions',wbGrammarData,'wbGrammarFeedback','wb-grammar');
+ renderWorkbookChoiceTask('wbWhoseQuestions',wbWhoseData,'wbWhoseFeedback','wb-whose');
+ renderWorkbookChoiceTask('wbReadingQuestions',wbReadingData,'wbReadingFeedback','wb-reading');
+}
+function resetWorkbookTask(rootId,feedbackId){
+ const root=document.getElementById(rootId);if(root)root.querySelectorAll('.choice').forEach(b=>b.classList.remove('correct','wrong'));
+ const fb=document.getElementById(feedbackId);if(fb){fb.textContent='';fb.className='feedback'}
+}
+function resetWorkbookGrammar(){resetWorkbookTask('wbGrammarQuestions','wbGrammarFeedback')}
+function resetWorkbookWhose(){resetWorkbookTask('wbWhoseQuestions','wbWhoseFeedback')}
+function resetWorkbookReading(){resetWorkbookTask('wbReadingQuestions','wbReadingFeedback')}
+function normalizeWB(v){return v.trim().toLowerCase().replace(/[’]/g,"'").replace(/\s+/g,' ')}
+function checkWBInputs(ids,answers,feedbackId,label){
+ let correct=0;ids.forEach((id,i)=>{const el=document.getElementById(id);if(!el)return;const ok=answers[i].includes(normalizeWB(el.value));el.style.borderColor=ok?'#3bb76b':'#ef6464';if(ok)correct++});
+ const fb=document.getElementById(feedbackId);fb.textContent=correct===ids.length?'Perfect! All answers are correct. ⭐':correct+' of '+ids.length+' correct. Check the red fields and try again.';fb.className='feedback '+(correct===ids.length?'good':'bad');
+ if(correct===ids.length&&typeof addStar==='function')addStar(label);
+}
+function resetWBInputs(ids,feedbackId){ids.forEach(id=>{const e=document.getElementById(id);if(e){e.value='';e.style.borderColor=''}});const f=document.getElementById(feedbackId);if(f){f.textContent='';f.className='feedback'}}
+function checkWorkbookWords(){checkWBInputs(['wbv1','wbv2','wbv3','wbv4','wbv5','wbv6'],[['lorry'],['tablet'],['camera'],['watch'],['robot'],['teddy','teddy bear','teddies','teddy bears']],'wbvFeedback','wb-vocabulary')}
+function resetWorkbookWords(){resetWBInputs(['wbv1','wbv2','wbv3','wbv4','wbv5','wbv6'],'wbvFeedback')}
+function checkWorkbookSpelling(){checkWBInputs(['wbs1','wbs2','wbs3','wbs4','wbs5','wbs6'],[['cameras'],['robot'],['aliens'],['watches'],['kites'],['lorries']],'wbsFeedback','wb-spelling')}
+function resetWorkbookSpelling(){resetWBInputs(['wbs1','wbs2','wbs3','wbs4','wbs5','wbs6'],'wbsFeedback')}
+function checkWorkbookListening(){
+ const ids=['wbl1','wbl2','wbl3','wbl4','wbl5'];const vals=ids.map(id=>normalizeWB(document.getElementById(id).value));
+ const valid=vals.every(v=>/^[1-6]$/.test(v))&&new Set(vals).size===vals.length;
+ const f=document.getElementById('wblFeedback');f.textContent=valid?'Numbers entered. Compare them with the audio and workbook answer key.':'Enter a different number from 1 to 6 in each field.';f.className='feedback '+(valid?'good':'bad');
+}
+function resetWorkbookListening(){resetWBInputs(['wbl1','wbl2','wbl3','wbl4','wbl5'],'wblFeedback')}
+document.addEventListener('DOMContentLoaded',initWorkbookTasks);
+
+
+let selectedColourToy=null;document.addEventListener('DOMContentLoaded',()=>{const root=document.getElementById('wbColourGame');if(!root)return;root.querySelectorAll('.colour-toy').forEach(btn=>btn.addEventListener('click',()=>{root.querySelectorAll('.colour-toy').forEach(b=>b.classList.remove('selected'));selectedColourToy=btn;btn.classList.add('selected');const f=document.getElementById('wbColourFeedback');f.textContent='Now choose a colour for the '+btn.dataset.toy+'.';f.className='feedback'}));root.querySelectorAll('.swatch').forEach(btn=>btn.addEventListener('click',()=>{const f=document.getElementById('wbColourFeedback');if(!selectedColourToy){f.textContent='Choose a toy first, then pick a colour.';f.className='feedback bad';return}selectedColourToy.style.setProperty('--picked-colour',btn.dataset.colour);selectedColourToy.classList.add('coloured');f.textContent='Lovely! The '+selectedColourToy.dataset.toy+' is now '+btn.textContent.toLowerCase()+'. 🎨';f.className='feedback good';if(typeof addStar==='function')addStar('wb-colour-'+selectedColourToy.dataset.toy)}))});
+
+// Ensure every correctly selected answer earns exactly one star, including older lesson questions.
+(function(){
+  const beforeState = new WeakMap();
+  document.addEventListener('click', function(e){
+    const b = e.target.closest('button');
+    if (b) beforeState.set(b, {score:score, answered:extraAnswered.size});
+  }, true);
+  document.addEventListener('click', function(e){
+    const b = e.target.closest('button');
+    if (!b || !b.classList.contains('correct') || b.dataset.starAwarded === '1') return;
+    const before = beforeState.get(b);
+    if (!before) return;
+    // If the existing handler already called addStar, do not award twice.
+    if (extraAnswered.size > before.answered) {
+      b.dataset.starAwarded = '1';
+      return;
+    }
+    // Older textbook answer buttons increment score directly, so also sync the reward counter.
+    if (score > before.score) {
+      rewardCounts.stars++;
+      updateRewards();
+      const pop=document.getElementById('rewardPop');
+      if(pop){pop.textContent='⭐ Star earned!';pop.classList.add('show');setTimeout(()=>pop.classList.remove('show'),1100);}
+      b.dataset.starAwarded = '1';
+      return;
+    }
+    if (typeof addStar === 'function') {
+      addStar('auto-correct-' + (b.id || b.closest('[data-screen]')?.getAttribute('data-screen') || 'screen') + '-' + Array.from(b.parentElement ? b.parentElement.children : []).indexOf(b) + '-' + b.textContent.trim());
+      b.dataset.starAwarded = '1';
+    }
+  });
+})();
+</script></body></html>
